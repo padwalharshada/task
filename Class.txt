@@ -1,0 +1,503 @@
+1)Book 
+bid
+bname,author
+price
+using System;
+class Book 
+{
+	int Bid;
+	string Bname,Bauthor;
+	double Bprice;
+	public void accept()
+	{		
+		Console.WriteLine("Enter Bid ,Bname,Bauthor & Bprice");
+		Bid=Convert.ToInt32(Console.ReadLine());
+		Bname=Console.ReadLine();
+		Bauthor=Console.ReadLine();
+		Bprice=Convert.ToDouble(Console.ReadLine());	
+	}
+	public void display()
+	{
+		Console.WriteLine("Bid={0}",Bid);
+		Console.WriteLine("Bname={0}",Bname);
+		Console.WriteLine("Bauthor={0}",Bauthor);
+		Console.WriteLine("Bprice={0}",Bprice);		
+	}
+}
+public class Stud_Demo {
+
+	public static void Main(string[] args) {
+		Book b1=new Book();
+		
+		b1.accept();
+		b1.display();
+		Book b2=new Book();
+		b2.accept();
+		b2.display();
+		Book b3=new Book();
+		b3.accept();
+		b3.display();
+
+	}
+
+}
+
+2)Vehicle
+int vid 
+string vanme,compname,color,ownern
+double price
+
+using System;
+class Vehicle
+{
+	int Vid;
+	string Vcompname,Vcolor,Vowner;
+	double Vprice;
+	public void accept()
+	{		
+		Console.WriteLine("Enter Vid ,Vcompname,Vcolor,Vowner & Vprice");
+		Vid=Convert.ToInt32(Console.ReadLine());
+		Vcompname=Console.ReadLine();
+		Vcolor=Console.ReadLine();
+		Vowner=Console.ReadLine();
+		Vprice=Convert.ToDouble(Console.ReadLine());	
+	}
+	public void display()
+	{
+		Console.WriteLine("Vid={0}",Vid);
+		Console.WriteLine("Vcompname={0}",Vcompname);
+		Console.WriteLine("Vcolor={0}",Vcolor);
+	    Console.WriteLine("Vowner={0}",Vowner);
+		Console.WriteLine("Vprice={0}",Vprice);		
+	}
+}
+public class Stud_Demo {
+
+	public static void Main(string[] args) {
+		Vehicle v1=new Vehicle();
+		
+		v1.accept();
+		v1.display();
+		Vehicle v2=new Vehicle();
+		v2.accept();
+		v2.display();
+		Vehicle v3=new Vehicle();
+		v3.accept();
+		v3.display();
+
+	}
+
+}
+
+
+
+3)Employee
+eid,ename,designation,email,addr,salary
+
+
+using System;
+class Employee 
+{
+	int eid;
+	string ename,edestination,eemail,eaddr;
+	double esalary;
+	public void accept()
+	{		
+		Console.WriteLine("Enter eid ,ename,edestination,eemail,eaddr & esalary");
+		eid=Convert.ToInt32(Console.ReadLine());
+	    ename=Console.ReadLine();
+	    edestination=Console.ReadLine();
+	    eemail=Console.ReadLine();
+		eaddr=Console.ReadLine();
+		esalary=Convert.ToDouble(Console.ReadLine());	
+	}
+	public void display()
+	{
+		Console.WriteLine("eid={0}",eid);
+		Console.WriteLine("ename={0}",ename);
+		Console.WriteLine("edestination={0}",edestination);
+		Console.WriteLine("eemail={0}",eemail);	
+		Console.WriteLine("eaddr={0}",eaddr);
+		Console.WriteLine("esalary={0}",esalary);
+}
+}
+public class Stud_Demo {
+
+	public static void Main(string[] args) {
+		Employee e1=new Employee();
+		
+		e1.accept();
+		e1.display();
+		Employee e2=new Employee();
+		e2.accept();
+		e2.display();
+		
+	}
+
+}
+
+4)Rectangle which has two data members width and height.
+
+using System;  
+public struct Rectangle  
+{  
+    public int width, height;  
+  
+ }  
+public class TestStructs  
+{  
+    public static void Main()  
+    {  
+
+        Rectangle r = new Rectangle();  
+        r.width = 4;  
+        r.height = 5;  
+        Console.WriteLine("Area of Rectangle is: " + (r.width * r.height));  
+    }  
+}  
+
+5) student 
+rno
+sname,sper
+
+using System;
+class Student 
+{
+	int rno;
+	string sname;
+	double per;
+	public void accept()
+	{		
+		Console.WriteLine("Enter rollno ,name & per");
+		rno=Convert.ToInt32(Console.ReadLine());
+		sname=Console.ReadLine();
+		per=Convert.ToDouble(Console.ReadLine());	
+	}
+	public void display()
+	{
+		Console.WriteLine("Rollno={0}",rno);
+		Console.WriteLine("Name={0}",sname);
+		Console.WriteLine("Per={0}",per);		
+	}
+}
+public class Stud_Demo {
+
+	public static void Main(string[] args) {
+		Student s1=new Student();
+		
+		s1.accept();
+		s1.display();
+		Student s2=new Student();
+		s2.accept();
+		s2.display();
+		Student s3=new Student();
+		s3.accept();
+		s3.display();
+
+	}
+
+}
+6)area of rectangle
+using System;
+public class Area_Demo 
+{
+	double r,A;
+	public void accept(double r)//double r1
+	{
+		this.r=r;//r=r1
+	}
+	public double cal_area()
+	{
+		A=3.14*r*r;
+		return(A);
+	}	
+}
+class Area_Ex
+{
+                    public static void Main(string[] args) 
+	{
+		double r1,A;		
+		Area_Demo a1=new Area_Demo();
+		Console.WriteLine("Enter value of r");
+		r1=Convert.ToDouble(Console.ReadLine());
+		a1.accept(r1);
+		A=a1.cal_area();
+		Console.WriteLine("Area={0}",A);
+	}
+
+}
+
+7)factorial
+using System;
+class Fact_Demo 
+{
+	int n,f1=1,i;
+public void accept(int n)
+	{
+		this.n=n;
+	}
+public int cal_fact()
+	{
+		for(i=n;i>=1;i--)
+		{
+		    f1=f1*i;
+		}
+		return f1;
+	}
+}
+public class Fact_Ex
+{
+    public static void Main(string[] args) 
+	{
+		int n,f1;
+		n=Convert.ToInt32(Console.ReadLine());
+		Fact_Demo a1= new Fact_Demo();
+		a1.accept(n);
+		f1=a1.cal_fact();
+		Console.WriteLine("Fact="+f1);
+	}
+}
+
+8)max 2 number
+using System;
+public class Maximum 
+{
+	int n2,n1;
+public void Accept(int n1,int n2)
+	{
+	    this.n1=n1;
+	    this.n2=n2;
+	}
+	public string Display()
+	{
+	    if(n1>n2)
+	    {
+	        return "n1 is max";
+	    }
+	    else if(n1<n2)
+	    {
+	        return "n2 is max";
+	    }
+	    else
+	    {
+	        return " Both are equal";
+	    }
+	}
+}
+
+public class Demo {
+    public static void Main(string[] args) {
+        int n1,n2;
+        string max;
+	
+		Console.WriteLine("Enter any two value:");
+		n1=Convert.ToInt32(Console.ReadLine());
+		n2=Convert.ToInt32(Console.ReadLine());
+		Maximum m=new Maximum();
+		m.Accept(n1,n2);
+		max=m.Display();
+	Console.WriteLine(max);
+    }
+}
+
+9)Maximum from 3 number
+using System;
+public class Maximum 
+{
+	int n2,n1,n3;
+	public void Accept(int n1,int n2,int n3)
+	{
+	    this.n1=n1;
+	    this.n2=n2;
+	    this.n3=n3;
+	}
+public string Display()
+	{
+	    if(n1>n2 && n1>n3)
+	    {
+	        return "n1 is max";
+	    }
+	    else if(n2<n1 && n2>n3)
+	    {
+	        return "n2 is max";
+	    }
+	    else 
+	    {
+	        return "n3 is max";
+	    }
+	}
+}
+
+public class Demo {
+    public static void Main(string[] args) {
+        int n1,n2,n3;
+        string max;
+		
+		Console.WriteLine("Enter any three value");
+		n1=Convert.ToInt32(Console.ReadLine());
+		n2=Convert.ToInt32(Console.ReadLine());
+		n3=Convert.ToInt32(Console.ReadLine());
+		Maximum m=new Maximum();
+		m.Accept(n1,n2,n3);
+		max=m.Display();
+		Console.WriteLine(max);
+    }
+}
+
+10)Prime
+using System;
+ public class Prime 
+{
+	int i,x,fact=1;
+public void accept(int x)
+	{
+	    this.x=x;
+	}
+public string display()
+	{
+	    for(i=2;i<x;i++)
+        {
+           if(i%x==0)
+           {
+             fact=0;
+             break;
+           }}
+        
+            if(fact==0)
+            {
+                return "not Prime";
+            }
+        
+            else
+            {
+                return" prime";
+            }
+	}
+}
+
+public class Demo {
+    public static void Main(string[] args) {
+        int x;
+        string pr;
+		
+		Console.WriteLine("Enter any value");
+		x=Convert.ToInt32(Console.ReadLine());
+		Prime p=new Prime();
+		p.accept(x);
+		pr=p.display();
+	Console.WriteLine(pr);
+    }
+}
+
+11)check vowels are present or not
+using System;
+ public class VowelChecker {
+    public void checkVowels(String str) {
+        int vowelCount = 0;
+        foreach (char c in str.ToLower().ToCharArray()) {
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                vowelCount++;
+            }
+        }
+        Console.WriteLine("Number of vowels in the string: " + vowelCount);
+    }
+}
+public class vowel
+{
+    public static void Main(string[] args) {
+        
+        VowelChecker checker = new VowelChecker();
+        
+        checker.checkVowels("Hello World");
+    }
+}
+11)Armstrong
+using System;
+class Armstrong {
+    int n, sum = 0, temp;
+
+    public void accept(int n) {
+        this.n = n;
+        this.temp = n;
+    }
+  public string display() {
+        while (n > 0) {
+            int n1 = n % 10;
+            sum = sum + (n1 * n1 * n1);
+            n = n / 10;
+        }
+        if (sum == temp) {
+            return "Number is Armstrong";
+        } else {
+            return "Number is not Armstrong";
+        }
+    }
+}
+public class Arm {
+    public static void Main(String[] args) {
+        int n;
+        string result;
+        Console.WriteLine("Enter any number:");
+        n =Convert.ToInt32(Console.ReadLine());
+        Armstrong armstrong = new Armstrong();
+        armstrong.accept(n);
+        result = armstrong.display();
+        Console.WriteLine(result);
+    }
+}
+
+12)Reverse
+using System;
+public class Reverse {
+    int number;
+    public Reverse(int number) {
+        this.number = number;
+    }
+    public int reverse() {
+        int rev = 0;
+        int ori = number;
+        while (ori != 0) {
+            int digit = ori % 10;
+            rev = rev * 10 + digit;
+            ori /= 10;
+        }
+        return rev;
+    }
+    public static void Main(String[] args) {
+        
+       Console.WriteLine("Enter a number: ");
+        int number = Convert.ToInt32(Console.ReadLine());
+        Reverse reverseObj = new Reverse(number);
+        int rev = reverseObj.reverse();
+         Console.WriteLine("Reverse of the number is: " + rev);
+    }
+}
+
+13)magic
+using System;
+public class MagicNumber {
+    public static void Main(String[] args) {
+        
+        Console.WriteLine("Enter a number: ");
+        int number = Convert.ToInt32(Console.ReadLine());
+
+        if (isMagicNumber(number)) {
+            Console.WriteLine("The number is a magic number.");
+        } else {
+           Console.WriteLine("The number is not a magic number.");
+        }
+    }
+    public static  bool isMagicNumber(int number) {
+        int sum = 0;
+        while (number!= 0) {
+            sum += number % 10;
+            number /= 10;
+        }
+        return sum == 1;
+    }
+}
+
+
+
+
+

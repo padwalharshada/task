@@ -1,0 +1,1442 @@
+1)string all 8 function
+using System;
+public class Demo
+{
+    static void Print(string str)
+    {
+        for (int i = 0; i < str.Length; i++)
+        {
+            char ch = str[i];
+            Console.WriteLine("Character at index " + i + " is: " + ch);
+        }
+    }
+    static int CountVowel(string str)
+    {
+        int cnt = 0;
+        for (int i = 0; i < str.Length; i++)
+        {
+            char ch = str[i];
+            if (ch == 'a' || ch == 'A' || ch == 'e' || ch == 'E' || ch == 'i' || ch == 'I' || ch == 'o' || ch == 'O' || ch == 'u' || ch == 'U')
+            {
+                cnt++;
+            }
+        }
+        return cnt;
+    }
+    static void EvenPos(string str)
+    {
+        for (int i = 1; i < str.Length; i += 2)
+        {
+            char ch = str[i];
+            Console.WriteLine("Character at even position " + i + " is: " + ch);
+        }
+    }
+    static int CountDigits(string str)
+    {
+        int cnt = 0;
+        for (int i = 0; i < str.Length; i++)
+        {
+            char ch = str[i];
+            if (ch >= '0' && ch <= '9')
+            {
+                cnt++;
+            }
+        }
+        return cnt;
+    }
+    static void ToggleLetters(string str)
+    {
+        int capital = 0;
+        int small = 0;
+        char[] result = new char[str.Length];
+
+        for (int i = 0; i < str.Length; i++)
+        {
+            char ch = str[i];
+            if (ch >= 'A' && ch <= 'Z')
+            {
+                capital++;
+                result[i] = (char)(ch + 32);
+            }
+            else if (ch >= 'a' && ch <= 'z')
+            {
+                small++;
+                result[i] = (char)(ch - 32);
+            }
+            else
+            {
+                result[i] = ch;
+            }
+        }
+        Console.WriteLine("Toggled String: " + new string(result));
+        Console.WriteLine("Total Uppercase characters: " + capital);
+        Console.WriteLine("Total Lowercase characters: " + small);
+    }
+    static void ValidateEmail(string em)
+    {
+        int dotCount = 0;
+        int atCount = 0;
+
+        for (int i = 0; i < em.Length; i++)
+        {
+            char ch = em[i];
+            if (ch == '.')
+            {
+                dotCount++;
+            }
+            else if (ch == '@')
+            {
+                atCount++;
+            }
+        }
+        if ((dotCount == 1 || dotCount == 2) && (atCount == 1))
+        {
+            Console.WriteLine("Valid email.");
+        }
+        else
+        {
+            Console.WriteLine("Invalid email.");
+        }
+    }
+    static void CountLetters(string cn)
+    {
+        int capital = 0;
+        int small = 0;
+        int digit = 0;
+        int special = 0;
+
+        for (int i = 0; i < cn.Length; i++)
+        {
+            char ch = cn[i];
+            if (ch >= 'A' && ch <= 'Z')
+            {
+                capital++;
+            }
+            else if (ch >= 'a' && ch <= 'z')
+            {
+                small++;
+            }
+            else if (ch >= '0' && ch <= '9')
+            {
+                digit++;
+            }
+            else
+            {
+                special++;
+            }
+        }
+        Console.WriteLine("Total number of Uppercase characters: " + capital);
+        Console.WriteLine("Total number of Lowercase characters: " + small);
+        Console.WriteLine("Total number of Digit characters: " + digit);
+        Console.WriteLine("Total number of Special characters: " + special);
+    }
+    static void spa(string space)
+    {
+        string result = "";
+
+        for (int i = 0; i < space.Length; i++)
+        {
+            char ch = space[i];
+            if (ch == ' ')
+            {
+                result=result+'*';
+            }
+            else
+            {
+                result=result+ch;
+            }
+        }
+        Console.WriteLine("String after replacing spaces with '*': " + result);
+    }
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("Enter the string:");
+        string str = Console.ReadLine();
+        int choice;
+        do
+        {
+            Console.WriteLine("Select Choice :");
+            Console.WriteLine("1. Show String.");
+            Console.WriteLine("2. Count vowels.");
+            Console.WriteLine("3. Print characters at even positions.");
+            Console.WriteLine("4. Count Digits in String.");
+            Console.WriteLine("5. Toggle Letters.");
+            Console.WriteLine("6. Check Email validation.");
+            Console.WriteLine("7. Count lowercase, uppercase, digit, and special character in String.");
+            Console.WriteLine("8. Replace spaces with '*'.");
+            Console.WriteLine("9. Exit.");
+            choice = Convert.ToInt32(Console.ReadLine());
+            switch (choice)
+            {
+                case 1:
+                    Print(str);
+                    break;
+                case 2:
+                    int vowelCount = CountVowel(str);
+                    Console.WriteLine("Number of vowels in the string: " + vowelCount);
+                    break;
+                case 3:
+                    EvenPos(str);
+                    break;
+                case 4:
+                    int digitCount = CountDigits(str);
+                    Console.WriteLine("Number of digits in the string: " + digitCount);
+                    break;
+                case 5:
+                    ToggleLetters(str);
+                    break;
+                case 6:
+                    Console.WriteLine("Enter the email:");
+                    string email = Console.ReadLine();
+                    ValidateEmail(email);
+                    break;
+                case 7:
+                    CountLetters(str);
+                    break;
+                case 8:
+                    spa(str);
+                    break;
+                case 9:
+                    Console.WriteLine("Program execution terminated...");
+                    break;
+                default:
+                    Console.WriteLine("Invalid Choice. Please select again.");
+                    break;
+            }
+        } while (choice!=9);
+}
+}
+
+
+2)	using System;  
+public class StringExample  
+{  
+    public static void Main(string[] args)  
+    {  
+        string s1 = "hello";  
+  
+        char[] ch = { 'c', 's', 'h', 'a', 'r', 'p' };  
+        string s2 = new string(ch);  
+         Console.WriteLine("Enter String");
+      string s3 = Console.ReadLine();
+        Console.WriteLine(s1);  
+        Console.WriteLine(s2);  
+ Console.WriteLine(s3);  
+    }  
+}  
+3)	using System;  
+public class StringExample  
+{  
+    public static void Main(string[] args)  
+    {  
+        int i,cnt=0; 
+        char ch;
+         Console.WriteLine("Enter String");
+      string s1 = Console.ReadLine();
+        Console.WriteLine("String 1={0}",s1); 
+        for(i=0;i<s1.Length;i++)
+        {
+            ch=s1[i];
+        }
+        Console.WriteLine("char at"+i+"place"+ch);
+} 
+   }  
+4)Accept String from user & calculate no of vowels in given string
+using System;
+class HelloWorld {
+  static void Main() 
+  {
+      int i,cnt=0;
+      char ch;
+      Console.WriteLine("Enter String");		             Console.ReadLine();  
+      Console.WriteLine("String 1={0}",s1);					    	  
+      for(i=0;i<s1.Length;i++)
+        {
+            ch=s1[i]; 
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
+                ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
+
+            cnt++;
+        }
+    Console.WriteLine("No of vowels are"+cnt);  	 
+  }
+}
+
+5)Print all character from given string
+using System;
+class HelloWorld {
+  static void Main() 
+  {
+      int i,cnt=0;
+      char ch;
+      Console.WriteLine("Enter String");		            Console.ReadLine();  
+      Console.WriteLine("String 1={0}",s1);					    	  
+      for(i=0;i<s1.Length;i++)
+        {
+            ch=s1[i]; 
+Console.WriteLine(ch);
+}
+}
+}
+6)Print all even position character from given string
+using System;
+class HelloWorld {
+  static void Main() 
+  {
+      int i,cnt=0;
+      char ch;
+      Console.WriteLine("Enter String");		     
+      string s1 = Console.ReadLine();  
+      Console.WriteLine("String 1={0}",s1);					    // string s2; 	  
+      for(i=1;i<s1.Length;i=i+2)
+        {
+            ch=s1[i]; 
+Console.WriteLine(ch);
+}
+}
+}
+7)count total no of digits from given string
+using System;
+class HelloWorld {
+  static void Main() 
+  {
+      int i,cnt=0;
+      char ch;
+      Console.WriteLine("Enter String");		           Console.ReadLine();  
+      Console.WriteLine("String 1={0}",s1);					     	  
+      for(i=1;i<s1.Length;i=i+2)
+        {
+            ch=s1[i]; 
+            if(ch >='0' && ch <= '9') 
+            {  
+                cnt++;  
+            }  
+Console.WriteLine("cnt");
+
+}
+}
+}
+8)Convert lowercase character into uppercase & viceversa
+
+using System;
+class HelloWorld {
+  static void Main() 
+  {4785
+      int i,cnt=0;
+      char ch;
+      Console.WriteLine("Enter String");
+      string s1 = Console.ReadLine();    
+      for(i=0;i<s1.Length;i++)
+        {
+            ch=s1[i]; 
+            if(ch >='A'&& ch <= 'Z') 
+		            {  
+		                ch =(char) (ch+32);
+			  Console.Write("{0}",ch);
+;
+		            }  
+			else  if(ch >='a'&& ch <= 'z') 
+		            {  
+		                  ch =(char) (ch-32);
+			   Console.Write("{0}",ch);
+		            }  
+else
+{
+ Console.Write("{0}",ch);
+}
+        }
+    
+  }
+}
+
+
+
+ 9)java program for replace space with *.
+using System;
+
+class HelloWorld
+{
+    static void Main()
+    {
+        int i;
+        char ch;
+        Console.WriteLine("Enter String:");
+        string s1 = Console.ReadLine();
+        Console.WriteLine("String s1 = {0}", s1);
+        for (int i=0; i<str.Length; i++) 
+		        {
+			if(ch=='')
+		            if(ch ==' ') 
+		            {  
+		               str[i]='*';
+		            }  
+}
+}
+}
+10)  C# String Compare() Method Example
+
+using System;    
+    public class StringExample    
+    {    
+        public static void Main(string[] args)    
+        {    
+            string s1 = "hello";    
+            string s2 = "hello";    
+            string s3 = "csharp";  
+            string s4 = "mello";  
+        
+            Console.WriteLine(string.Compare(s1,s2));   
+            Console.WriteLine(string.Compare(s2,s3));   
+            Console.WriteLine(string.Compare(s3,s4));   
+        }    
+    }  
+
+  11) 
+using System;    
+    public class StringExample    
+    {    
+        public static void Main(string[] args)    
+        {    
+
+string s1="pratu";
+string s2="niku";
+
+if(string.Compare(s1,s2)==0)
+Console.WriteLine("Both are equals");
+else if (string.Compare(s1,s2)>0)
+Console.WriteLine("s1>s2");
+else
+Console.Write("s2>s1");
+}  
+}
+12) 
+
+using System;    
+    public class StringExample    
+    {    
+        public static void Main(string[] args)    
+        {
+string s1;
+string s2;
+s1=
+s2=
+
+if(string.Compare(s1,"")==0)
+Console.WriteLine("user name should be blank");
+else if(string.Compare(s2,"")==0)
+Console.WriteLine("password should be blank");
+else if(string.Compare(s1,"admin")==0 && string.Compare(s2,"12345")==0)
+Console.WriteLine("Login successfully");
+else
+Console.WriteLine("Login unsuccessfully");
+}  
+}
+
+13) C# String Concat() Method Example
+using System;    
+    public class StringExample    
+    {    
+        public static void Main(string[] args)    
+        {    
+             string s1 = "Hello ";    
+             string s2 = "C#";    
+             Console.WriteLine(string.Concat(s1,s2));    
+        }    
+    }    
+
+
+
+
+14) i/p  india is my country
+0/p India Is My Country
+
+using System;
+using System.Globalization;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Enter a string:");
+        string input = Console.ReadLine();
+
+        string output = CapitalizeWordsExceptCountry(input);
+        Console.WriteLine("Output: " + output);
+    }
+
+    static string CapitalizeWordsExceptCountry(string input)
+    {
+        string[] words = input.Split(' ');
+
+        TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
+
+        for (int i = 0; i < words.Length; i++)
+        {
+            if (words[i].ToLower() != "country")
+            {
+                words[i] = textInfo.ToTitleCase(words[i].ToLower());
+            }
+        }
+
+        return string.Join(" ",words);
+        
+    }
+}
+15) Copy one string into another without using standard method
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string source = "orange itech";
+        string destination = CopyString(source);
+
+        Console.WriteLine("Source string: " + source);
+        Console.WriteLine("Copied string: " + destination);
+    }
+
+    static string CopyString(string source)
+    {
+        char[] charArray = new char[source.Length]; // Create a character array to hold the characters
+
+        for (int i = 0; i < source.Length; i++)
+        {
+            charArray[i] = source[i]; // Copy each character from source to charArray
+        }
+
+        string copiedString = new string(charArray);
+        return copiedString;
+    }
+}
+  16)  8function
+using System;
+public class Demo
+{
+    static void Print(string str)
+    {
+        for (int i = 0; i < str.Length; i++)
+        {
+            char ch = str[i];
+            Console.WriteLine("Character at index " + i + " is: " + ch);
+        }
+    }
+    static int CountVowel(string str)
+    {
+        int cnt = 0;
+        for (int i = 0; i < str.Length; i++)
+        {
+            char ch = str[i];
+            if (ch == 'a' || ch == 'A' || ch == 'e' || ch == 'E' || ch == 'i' || ch == 'I' || ch == 'o' || ch == 'O' || ch == 'u' || ch == 'U')
+            {
+                cnt++;
+            }
+        }
+        return cnt;
+    }
+    static void EvenPos(string str)
+    {
+        for (int i = 1; i < str.Length; i += 2)
+        {
+            char ch = str[i];
+            Console.WriteLine("Character at even position " + i + " is: " + ch);
+        }
+    }
+    static int CountDigits(string str)
+    {
+        int cnt = 0;
+        for (int i = 0; i < str.Length; i++)
+        {
+            char ch = str[i];
+            if (ch >= '0' && ch <= '9')
+            {
+                cnt++;
+            }
+        }
+        return cnt;
+    }
+    static void ToggleLetters(string str)
+    {
+        int capital = 0;
+        int small = 0;
+        char[] result = new char[str.Length];
+
+        for (int i = 0; i < str.Length; i++)
+        {
+            char ch = str[i];
+            if (ch >= 'A' && ch <= 'Z')
+            {
+                capital++;
+                result[i] = (char)(ch + 32);
+            }
+            else if (ch >= 'a' && ch <= 'z')
+            {
+                small++;
+                result[i] = (char)(ch - 32);
+            }
+            else
+            {
+                result[i] = ch;
+            }
+        }
+        Console.WriteLine("Toggled String: " + new string(result));
+        Console.WriteLine("Total Uppercase characters: " + capital);
+        Console.WriteLine("Total Lowercase characters: " + small);
+    }
+    static void ValidateEmail(string em)
+    {
+        int dotCount = 0;
+        int atCount = 0;
+
+        for (int i = 0; i < em.Length; i++)
+        {
+            char ch = em[i];
+            if (ch == '.')
+            {
+                dotCount++;
+            }
+            else if (ch == '@')
+            {
+                atCount++;
+            }
+        }
+        if ((dotCount == 1 || dotCount == 2) && (atCount == 1))
+        {
+            Console.WriteLine("Valid email.");
+        }
+        else
+        {
+            Console.WriteLine("Invalid email.");
+        }
+    }
+    static void CountLetters(string cn)
+    {
+        int capital = 0;
+        int small = 0;
+        int digit = 0;
+        int special = 0;
+
+        for (int i = 0; i < cn.Length; i++)
+        {
+            char ch = cn[i];
+            if (ch >= 'A' && ch <= 'Z')
+            {
+                capital++;
+            }
+            else if (ch >= 'a' && ch <= 'z')
+            {
+                small++;
+            }
+            else if (ch >= '0' && ch <= '9')
+            {
+                digit++;
+            }
+            else
+            {
+                special++;
+            }
+        }
+        Console.WriteLine("Total number of Uppercase characters: " + capital);
+        Console.WriteLine("Total number of Lowercase characters: " + small);
+        Console.WriteLine("Total number of Digit characters: " + digit);
+        Console.WriteLine("Total number of Special characters: " + special);
+    }
+    static void spa(string space)
+    {
+        string result = "";
+
+        for (int i = 0; i < space.Length; i++)
+        {
+            char ch = space[i];
+            if (ch == ' ')
+            {
+                result=result+'*';
+            }
+            else
+            {
+                result=result+ch;
+            }
+        }
+        Console.WriteLine("String after replacing spaces with '*': " + result);
+    }
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("Enter the string:");
+        string str = Console.ReadLine();
+        int choice;
+        do
+        {
+            Console.WriteLine("Select Choice :");
+            Console.WriteLine("1. Show String.");
+            Console.WriteLine("2. Count vowels.");
+            Console.WriteLine("3. Print characters at even positions.");
+            Console.WriteLine("4. Count Digits in String.");
+            Console.WriteLine("5. Toggle Letters.");
+            Console.WriteLine("6. Check Email validation.");
+            Console.WriteLine("7. Count lowercase, uppercase, digit, and special character in String.");
+            Console.WriteLine("8. Replace spaces with '*'.");
+            Console.WriteLine("9. Exit.");
+            choice = Convert.ToInt32(Console.ReadLine());
+            switch (choice)
+            {
+                case 1:
+                    Print(str);
+                    break;
+                case 2:
+                    int vowelCount = CountVowel(str);
+                    Console.WriteLine("Number of vowels in the string: " + vowelCount);
+                    break;
+                case 3:
+                    EvenPos(str);
+                    break;
+                case 4:
+                    int digitCount = CountDigits(str);
+                    Console.WriteLine("Number of digits in the string: " + digitCount);
+                    break;
+                case 5:
+                    ToggleLetters(str);
+                    break;
+                case 6:
+                    Console.WriteLine("Enter the email:");
+                    string email = Console.ReadLine();
+                    ValidateEmail(email);
+                    break;
+                case 7:
+                    CountLetters(str);
+                    break;
+                case 8:
+                    spa(str);
+                    break;
+                case 9:
+                    Console.WriteLine("Program execution terminated...");
+                    break;
+                default:
+                    Console.WriteLine("Invalid Choice. Please select again.");
+                    break;
+            }
+        } while (choice != 9);
+    }
+}
+17) accept email id from user check whether it is valid or not valid(@)
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Enter your email:");
+        string email = Console.ReadLine();
+
+        if (IsValidEmail(email))
+        {
+            Console.WriteLine("Valid email.");
+        }
+        else
+        {
+            Console.WriteLine("Invalid email.");
+        }
+    }
+
+    static bool IsValidEmail(string email)
+    {
+        int atCount = 0;
+        foreach (char ch in email)
+        {
+            if (ch == '@')
+            {
+                atCount++;
+            }
+        }
+
+        if (atCount == 1 && email.IndexOf('@') > 0 && email.IndexOf('@') < email.Length - 1)
+        {
+            return true;
+        }
+        return  false;
+}
+}
+18) Count total  no of lowercase appearnes , digit and speed charachert
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Enter a string:");
+        string input = Console.ReadLine();
+
+        int lowerCount = 0;
+        int digitCount = 0;
+        int specialCount = 0;
+
+        foreach (char c in input)
+        {
+            if (char.IsLower(c))
+            {
+                lowerCount++;
+            }
+            else if (char.IsDigit(c))
+            {
+                digitCount++;
+            }
+            else if (!char.IsLetterOrDigit(c))
+            {
+                specialCount++;
+            }
+        }
+
+        Console.WriteLine($"Lowercase letters: {lowerCount}");
+        Console.WriteLine($"Digits: {digitCount}");
+        Console.WriteLine($"Special characters: {specialCount}");
+    }
+}
+
+
+19)lower to upper
+using System;
+class HelloWorld {
+  static void Main() 
+  {
+      int i;
+      char ch;
+      Console.WriteLine("Enter String");
+      string s1 = Console.ReadLine();    
+      for(i=0;i<s1.Length;i++)
+        {
+            ch=s1[i]; 
+            if(ch >='A'&& ch <= 'Z') 
+		            {  
+		                ch =(char) (ch+32);
+			  Console.Write("{0}",ch);
+;
+		            }  
+			else  if(ch >='a'&& ch <= 'z') 
+		            {  
+		                  ch =(char) (ch-32);
+			   Console.Write("{0}",ch);
+		            }  
+else
+{
+ Console.Write("{0}",ch);
+}
+        }
+    
+  }
+}
+
+
+
+
+
+
+20) Program to count the total number of characters in a string
+using System;
+public class CountCharacter    
+{    
+    public static void Main(String[] args) {    
+     String str = "The best of both worlds";    
+        int count = 0;    
+            
+        //Counts each character except space    
+        for(int i = 0; i < str.Length; i++) {    
+            if(str[i] != ' ');    
+                count++;    
+        }    
+            
+        //Displays the total number of characters present in the given string    
+        Console.WriteLine("Total number of characters in a string: " + count);    
+    }    
+}
+
+21)Program to count the total number of characters in a string 2
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string inputString = "2"; // Your input string
+        int characterCount = inputString.Length;
+
+        Console.WriteLine("The total number of characters in the string is: " + characterCount);
+}
+}
+22)Program to count the total number of punctuation characters exists in a String
+     using System;
+
+public class CountPunctuation   
+{    
+public static void Main (String []args)   
+{    
+//Stores the count of punctuation marks    
+int count = 0;    
+String str = "He said, 'The mailman loves you.' I heard it with my own ears.";    
+for (int i = 0; i < str.Length; i++)   
+{    
+//Checks whether given character is punctuation mark    
+if(str[i] == '!' || str[i] == ',' || str[i] == ';' || str[i] == '.' ||  str[i] == '?' ||str[i] == '-' ||    
+str[i] == '\'' || str[i] == '\"' || str[i] == ':')   
+{    
+count++;    
+}    
+}    
+Console.WriteLine("The number of punctuations exists in the string is: " +count);    
+}    
+}    
+23)  Program to count the total number of vowels and consonants in a string
+using System;
+
+public class CountVowelConsonant
+{
+    public static void Main(string[] args)
+    {
+        int vCount = 0, cCount = 0;
+        string str = "This is a really simple sentence";
+
+        str = str.ToLower(); 
+        for (int i = 0; i < str.Length; i++)
+        {
+            switch (str[i])
+            {
+                case 'a':
+                case 'e':
+                case 'i':
+                case 'o':
+                case 'u':
+                    vCount++;
+                    break;
+                case ' ': 
+                    break;
+                default:
+                    if (char.IsLetter(str[i])) 
+                    {
+                        cCount++;
+                    }
+                    break;
+            }
+        }
+
+        Console.WriteLine("Number of vowels: " + vCount);
+        Console.WriteLine("Number of consonants: " + cCount);
+    }
+}
+24) Program to determine whether two strings are the anagram
+using System;
+using System.Linq;
+
+public class Anagram
+{
+    public static void Main(string[] args)
+    {
+        String str1 = "Brag";
+        String str2 = "Grab";
+
+        // Converting both the strings to lower case.
+        str1 = str1.ToLower();
+        str2 = str2.ToLower();
+
+        // Checking for the length of strings
+        if (str1.Length != str2.Length)
+        {
+            Console.WriteLine("Both the strings are not anagram");
+        }
+        else
+        {
+            // Converting both the arrays to character array
+            char[] string1 = str1.ToCharArray();
+            char[] string2 = str2.ToCharArray();
+
+            // Sorting the arrays using in-built function sort
+            Array.Sort(string1);
+            Array.Sort(string2);
+
+            // Comparing both the arrays using in-built function equals
+            if (string1.SequenceEqual(string2))
+            {
+                Console.WriteLine("Both the strings are anagram");
+            }
+            else
+            {
+                Console.WriteLine("Both the strings are not anagram");
+            }
+ }
+}
+}
+
+25)Program to divide a string in 'N' equal parts.
+
+using System;
+public class DivideString {  
+    public static void Main(String[] args) {  
+          String str = "aaaabbbbcccc";  
+  
+        //Stores the length of the string  
+        int len = str.Length;  
+        //n determines the variable that divide the string in 'n' equal parts  
+        int n = 3;  
+        int temp = 0, chars = len/n;  
+        //Stores the array of string  
+        String[] equalStr = new String [n];  
+        //Check whether a string can be divided into n equal parts  
+        if(len % n != 0) {  
+            Console.WriteLine("Sorry this string cannot be divided into "+ n +" equal parts.");  
+        }  
+        else {  
+            for(int i = 0; i < len; i += chars) {  
+                //Dividing string in n equal part using substring()  
+                String part = str.Substring(i,chars);  
+                equalStr[temp] = part;  
+                temp++;  
+            }  
+    Console.WriteLine(n + " equal parts of given string are ");  
+            for(int i = 0; i < equalStr.Length; i++) {  
+                Console.WriteLine(equalStr[i]);  
+                }  
+            }  
+        }  
+}  
+
+26) Program to print the elements of an array present on even position
+using System;
+public class EvenPosition {  
+    public static void Main(String[] args) {  
+  
+        //Initialize array  
+        int [] arr = new int [] {1, 2, 3, 4, 5};  
+  
+        Console.WriteLine("Elements of given array present on even position: ");  
+        //Loop through the array by incrementing value of i by 2  
+        //Here, i will start from 1 as first even positioned element is present at position 1.  
+        for (int i = 1; i < arr.Length; i = i+2) {  
+            Console.WriteLine(arr[i]);  
+        }  
+    }  
+}  
+
+27)Program to find all subsets of a string
+using System;
+public class AllSubsets {  
+    public static void Main(String[] args) {  
+  
+        String str = "FUN";  
+        int len = str.Length;  
+        int temp = 0;  
+        //Total possible subsets for string of size n is n*(n+1)/2  
+        String [] arr= new String[len*(len+1)/2];  
+  
+        //This loop maintains the starting character  
+        for(int i = 0; i < len; i++) {  
+            //This loop adds the next character every iteration for the subset to form and add it to the array  
+            for(int j = i; j < len; j++) {  
+                arr[temp] = str.Substring(i, j-i+1);  
+                temp++;  
+            }  
+        }  
+  
+        //This loop prints all the subsets formed from the string.  
+        Console.WriteLine("All subsets for given string are: ");  
+        for(int i = 0; i < arr.Length; i++) {  
+            Console.WriteLine(arr[i]);  
+        }  
+    }  
+}  
+28) Program to find the longest repeating sequence in a string
+using System;
+
+public class LongestRepeatingSequence {  
+    //Checks for the largest common prefix  
+    public static String lcp(String s, String t){  
+        int n = Math.min(s.Length,t.Length);  
+        for(int i = 0; i < n; i++){  
+            if(s.str[i] != t.str[i]){  
+                return s.Substring(0,i);  
+            }  
+        }  
+        return s.Substring(0,n);  
+    }  
+  
+    public static void Main(String[] args) {  
+        String str = "acbdfghybdf";  
+        String lrs = "";  
+        int n = str.Length;  
+        for(int i = 0; i < n; i++){  
+            for(int j = i+1; j < n; j++){  
+                //Checks for the largest common factors in every substring  
+                String x = lcp(str.Substring(i,n),str.Substring(j,n));  
+               
+                if(x.Length >lrs.Length =x;  
+            }  
+        }  
+        Console.WriteLine("Longest repeating sequence: "+lrs);  
+    }  
+} 
+
+29) Java Program to find all the permutations of a string
+
+using System;
+
+public class PermuteString {    
+    //Function for swapping the characters at position I with character at position j    
+    public static String swapString(String a, int i, int j) {    
+        char[] b =a.ToCharArray();    
+        char ch;    
+        ch = b[i];    
+        b[i] = b[j];    
+        b[j] = ch;    
+        return string.valueOf(b);    
+    }    
+        
+    public static void Main(String[] args)    
+    {    
+        String str = "ABC";    
+        int len = str.Length;    
+        Console.WriteLine("All the permutations of the string are: ");    
+        generatePermutation(str, 0, len);    
+    }    
+        
+    //Function for generating different permutations of the string    
+    public static void generatePermutation(String str, int start, int end)    
+    {    
+        //Prints the permutations    
+        if (start == end-1)    
+            Console.WriteLine(str);    
+        else    
+        {    
+            for (int i = start; i < end; i++)    
+            {    
+                //Swapping the string by fixing a character    
+                str = swapString(str,start,i);    
+                //Recursively calling function generatePermutation() for rest of the characters     
+                generatePermutation(str,start+1,end);    
+                //Backtracking and swapping the characters again.    
+                str = swapString(str,start,i);    
+            }    
+        }    
+    }    
+}    
+
+30) Program to remove all the white spaces from a string
+using System;
+using System.Text.RegularExpressions;
+
+public class RemoveWhiteSpace {
+    public static void Main(string[] args) {
+        string str1 = "Remove white spaces";
+
+        // Removes the white spaces using regex
+        str1 = Regex.Replace(str1, @"\s+", "");
+
+        Console.WriteLine("String after removing all the white spaces: " +str1);
+}
+}
+
+
+31)Program to replace lower-case characters with upper-case and vice-versa
+using System;
+using System.Text;
+
+public class ChangeCase {
+    public static void Main(string[] args) {
+        string str1 = "Great Power";
+        StringBuilder newStr = new StringBuilder(str1);
+
+        for (int i = 0; i < str1.Length; i++) {
+            if (char.IsLower(str1[i])) {
+                // Convert to upper case
+                newStr[i] = char.ToUpper(str1[i]);
+            } else if (char.IsUpper(str1[i])) {
+                // Convert to lower case
+                newStr[i] = char.ToLower(str1[i]);
+            }
+        }
+
+        Console.WriteLine("String after case conversion: " + newStr.ToString());
+    }
+}
+
+32)Program to replace the spaces of a string with a specific character
+using System;
+public class ReplaceSpace    
+{    
+    public static void Main(string[] args) {    
+     string str = "Once in a blue moon";    
+        char ch = '-';    
+            
+        //Replace space with specific character ch    
+        str = str.Replace(' ', ch);    
+            
+        Console.WriteLine("String after replacing spaces with given character: ");    
+        Console.WriteLine(str);    
+    }    
+}      
+
+
+33)Program to determine whether a given string is palindrome
+
+using System;
+public class PalindromeString    
+{    
+    public static void Main(string[] args) {    
+       string str  = "Kayak";    
+        bool flag = true;    
+            
+        //Converts the given string into lowercase    
+        str = str.ToLower();    
+            
+        //Iterate the string forward and backward, compare one character at a time     
+        //till middle of the string is reached    
+        for(int i = 0; i < str.Length/2; i++){    
+            if(str[i] != str[str.Length-i-1]){    
+                flag = false;    
+                break;    
+            }    
+        }    
+        if(flag)    
+            Console.WriteLine("Given string is palindrome");    
+        else    
+            Console.WriteLine("Given string is not a palindrome");    
+    }    
+} 
+
+
+
+34)to determine whether one string is a rotation of another
+using System;
+public class StringRotation    
+{    
+    public static void Main(string[] args) {    
+        String str1 = "abcde", str2 = "deabc";    
+            
+        if(str1.Length != str2.Length){    
+            Console.WriteLine("Second string is not a rotation of first string");    
+        }    
+        else {    
+            //Concatenate str1 with str1 and store it in str1    
+            str1 = str1+str1;    
+             //Check whether str2 is present in str1    
+            if(str1.IndexOf(str2) != -1)    
+               Console.WriteLine("Second string is a rotation of first string");    
+            else    
+                Console.WriteLine("Second string is not a rotation of first string");    
+        }    
+    }    
+} 
+
+35)Program to find maximum and minimum occurring character in a string
+
+using System;
+
+public class Demo
+{
+    public static void Main(string[] args)
+    {
+        string str = "grass is greener on the other side";
+        int[] freq = new int[str.Length];
+        char minChar = str[0], maxChar = str[0];
+        int i, j, min, max;
+
+        // Converts given string into character array
+        char[] charArray = str.ToCharArray();
+
+        // Count each character in the given string and store in array freq
+        for (i = 0; i < str.Length; i++)
+        {
+            freq[i] = 1;
+            for (j = i + 1; j < str.Length; j++)
+            {
+                if (charArray[i] == charArray[j] && charArray[i] != '0')
+                {
+                    freq[i]++;
+                    // Set charArray[j] to '0' to avoid printing visited character
+                    charArray[j] = '0';
+                }
+            }
+        }
+
+        // Determine minimum and maximum occurring characters
+        min = max = freq[0];
+        for (i = 1; i < freq.Length; i++)
+        {
+            if (freq[i] != '0' && min > freq[i])
+            {
+                min = freq[i];
+                minChar = charArray[i];
+            }
+            if (max < freq[i])
+            {
+                max = freq[i];
+                maxChar = charArray[i];
+            }
+        }
+
+        Console.WriteLine("Minimum occurring character: " + minChar);
+        Console.WriteLine("Maximum occurring character: " + maxChar);
+}
+}
+
+36)Program to find Reverse of the string
+ using System;
+ public class Reverse   
+{    
+    public static void Main(string[] args) {    
+        String str = "Dream big";    
+        //Stores the reverse of given string    
+        String reversedStr = "";    
+            
+        //Iterate through the string from last and add each character to variable reversedStr    
+        for(int i = str.Length-1; i >= 0; i--){    
+            reversedStr = reversedStr + str[i];    
+        }    
+            
+        Console.WriteLine("Original string: " + str);    
+        //Displays the reverse of given string    
+        Console.WriteLine("Reverse of given string: " + reversedStr);    
+    }    
+}   
+
+ 37)  program to find the duplicate characters in a string
+using System;
+public class DuplicateCharacters {    
+     public static void Main(string[] args) {    
+        string str1 = "Great responsibility";    
+        int count;    
+            
+        //Converts given string into character array    
+        char []str = str1.ToCharArray(); 
+        
+            
+        Console.WriteLine("Duplicate characters in a given string: ");    
+        //Counts each character present in the string    
+        for(int i = 0; i <str.Length; i++) {    
+            count = 1;    
+            for(int j = i+1; j <str.Length; j++) {    
+                if(str[i] == str[j] && str[i] != ' ' && str[i]!='0') {    
+                    count++;    
+                    //Set string[j] to 0 to avoid printing visited character    
+                    str[j] = '0';    
+                }    
+            }    
+            //A character is considered as duplicate if count is greater than 1    
+            if(count > 1 && str[i] != '0')    
+                Console.WriteLine(str[i]);    
+        }    
+    }    
+}  
+
+ 38) program to find the duplicate words in a string
+using System;
+public class DuplicateWord {    
+    public static void Main(string[] args) {    
+        string str = "Big black bug bit a big black dog on his big black nose";    
+        int count;    
+            
+        //Converts the string into lowercase    
+        str=str.ToLower();    
+            
+        //Split the string into words using built-in function    
+        str words[] = str.split(" ");    
+            
+        Console.WriteLine("Duplicate words in a given string : ");     
+        for(int i = 0; i < words.Length; i++) {    
+            count = 1;    
+            for(int j = i+1; j < words.Length; j++) {    
+                if(words[i].equals(words[j])) {    
+                    count++;    
+                    //Set words[j] to 0 to avoid printing visited word    
+                    words[j] = "0";    
+                }    
+            }    
+                
+            //Displays the duplicate word if count is greater than 1    
+            if(count > 1 && words[i] != "0")    
+                Console.WriteLine(words[i]);    
+        }    
+    }    
+}   
+
+39) Program to find the frequency of character
+
+using System;
+public class FrequencyCharacter     
+{    
+     public static void Main(string[] args) {    
+        String str = "picture perfect";    
+        int[] freq = new int[str.Length];    
+        int i, j;    
+            
+        //Converts given string into character array    
+        char[]string1 = str.ToCharArray();    
+            
+        for(i = 0; i <str.Length; i++) {    
+            freq[i] = 1;    
+            for(j = i+1; j <str.Length; j++) {    
+                if(string1[i] == string1[j]) {    
+                    freq[i]++;    
+                        
+                    //Set string[j] to 0 to avoid printing visited character    
+                    string1[j] = '0';    
+                }    
+            }    
+        }    
+            
+        //Displays the each character and their corresponding frequency    
+       Console.WriteLine("Characters and their corresponding frequencies");    
+        for(i = 0; i <freq.Length; i++) {    
+            if(string1[i] != ' ' && string1[i] != '0')    
+               Console.WriteLine(str[i] + "-" + freq[i]);    
+        }    
+    }    
+}     
+   
+ 40) Program to find the largest and smallest word in a stringusing System;
+
+public class SmallestLargestWord
+{
+    public static void Main(string[] args)
+    {
+        String str = "Hardships often prepare ordinary people for an extraordinary destiny";
+        String word = "", smallest = "", largest = "";
+        String[] words = new String[100];
+        int length = 0;
+
+        str = str + " "; 
+
+        for (int i = 0; i < str.Length; i++)
+        {
+            if (str[i] != ' ')
+            {
+                word = word + str[i];
+            }
+            else
+            {
+                words[length] = word;
+                length++;
+                word = "";
+            }
+        }
+
+        smallest = largest = words[0]; 
+
+        for (int k = 0; k < length; k++)
+        {
+            if (smallest.Length > words[k].Length)
+            {
+                smallest = words[k];
+            }
+
+            if (largest.Length < words[k].Length)
+            {
+                largest = words[k];
+            }
+        }
+
+        Console.WriteLine("Smallest word: " + smallest);
+        Console.WriteLine("Largest word: " + largest);
+}
+}
+
+
+      
+
+
+
