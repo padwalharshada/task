@@ -1,0 +1,185 @@
+1)Factorial of a Number Using Recursion
+using System
+public class Factorial {
+    public static int factorial(int n) {
+        if (n == 0 || n == 1) {
+            return 1;
+        } else {
+            return n * factorial(n - 1);
+        }
+    }
+
+    public static void Main(String[] args) {
+        int number = 5;
+        Console.WriteLine("The factorial of " + number + " is " + factorial(number));
+    }
+}
+
+
+2)Write a program to print the Fibonacci of the given series for a given number using recursion?
+using System;
+public class Fibonacci {
+    public static int fibonacci(int n) {
+        if (n <= 0) {
+            return 0;
+        } else if (n == 1) {
+            return 1;
+        } else {
+            return fibonacci(n - 1) + fibonacci(n - 2);
+        }
+    }
+
+    public static void Main(String[] args) {
+        int terms = 10;
+        for (int i = 0; i < terms; i++) {
+            Console.WriteLine(fibonacci(i) + " ");
+        }
+    }
+}
+
+
+
+3)write a program to find the G.C.D. of the given number using recursion?
+using System;
+public class GCD {
+    public static int gcd(int a, int b) {
+        if (b == 0) {
+            return a;
+        } else {
+            return gcd(b, a % b);
+        }
+    }
+
+    public static void Main(String[] args) {
+        int num1 = 48;
+        int num2 = 18;
+        Console.WriteLine("The GCD of " + num1 + " and " + num2 + " is " + gcd(num1, num2));
+    }
+}
+
+
+4)Write a program to find the sum of the ‘n’ natural numbers using recursion?
+using System
+public class SumNaturalNumbers {
+    public static int sumNaturalNumbers(int n) {
+        if (n <= 1) {
+            return n;
+        } else {
+            return n + sumNaturalNumbers(n - 1);
+        }
+    }
+
+    public static void Main(String[] args) {
+        int n = 10;
+        Console.WriteLine("The sum of the first " + n + " natural numbers is " + sumNaturalNumbers(n));
+    }
+}
+
+
+
+5)Write a program to solve the towers of hanoi problem recursively?
+using System;
+public class TowersOfHanoi {
+    public static void towersOfHanoi(int n, char source, char target, char auxiliary) {
+        if (n == 1) {
+            Console.Writeline("Move disk 1 from " + source + " to " + target);
+            return;
+        }
+        towersOfHanoi(n - 1, source, auxiliary, target);
+        Console.WriteLine("Move disk " + n + " from " + source + " to " + target);
+        towersOfHanoi(n - 1, auxiliary, target, source);
+    }
+
+    public static void Main(String[] args) {
+        int numDisks = 3;
+        towersOfHanoi(numDisks, 'A', 'C', 'B');
+    }
+}
+
+
+6)Write a program to find minimum and maximum of the given numbers recursively?
+using System
+public class MinMax {
+    public static int findMin(int[] arr, int n) {
+        if (n == 1) {
+            return arr[0];
+        }
+        return Math.min(arr[n - 1], findMin(arr, n - 1));
+    }
+
+    public static int findMax(int[] arr, int n) {
+        if (n == 1) {
+            return arr[0];
+        }
+        return Math.max(arr[n - 1], findMax(arr, n - 1));
+    }
+
+    public static void Main(String[] args) {
+        int[] arr = {3, 1, 4, 1, 5, 9, 2, 6, 5};
+        Console.WriteLine("Minimum: " + findMin(arr, arr.length));
+        Console.WriteLine("Maximum: " + findMax(arr, arr.length));
+    }
+}
+
+
+7)Write a program to reverse the given ‘n’ numbers recursively?
+using System;
+public class ReverseArray {
+    public static void reverseArray(int[] arr, int start, int end) {
+        if (start >= end) {
+            return;
+        }
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+        reverseArray(arr, start + 1, end - 1);
+    }
+
+    public static void Main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        reverseArray(arr, 0, arr.length - 1);
+        Console.WriteLine("Reversed array: " + java.util.Arrays.toString(arr));
+    }
+}
+
+
+8).Write a program to find the binomial coefficient using the formula (or) Write a program to find NcR value by using recursion. NcR=N!/(R!*(N-R)!)?
+using System
+public class BinomialCoefficient {
+    public static int binomialCoefficient(int n, int r) {
+        if (r == 0 || r == n) {
+            return 1;
+        }
+        return binomialCoefficient(n - 1, r - 1) + binomialCoefficient(n - 1, r);
+    }
+
+    public static void Main(String[] args) {
+        int n = 5;
+        int r = 2;
+        Console.WriteLine("Binomial Coefficient C(" + n + ", " + r + ") is " + binomialCoefficient(n, r));
+    }
+}
+
+
+9).Write a program to accept any number and print the sum of that number up to a single digit recursively (Lucky number)?
+using System;
+public class LuckyNumber {
+    public static int sumToSingleDigit(int n) {
+        if (n < 10) {
+            return n;
+        } else {
+            int sum = 0;
+            while (n > 0) {
+                sum=sum+n % 10;
+                n=n/10;
+            }
+            return sumToSingleDigit(sum);
+        }
+    }
+
+    public static void Main(String[] args) {
+        int number = 12345;
+        Console.WriteLine("The sum of the digits of " + number + " up to a single digit is " + sumToSingleDigit(number));
+    }
+}
+

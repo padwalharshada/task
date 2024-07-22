@@ -1,0 +1,1041 @@
+
+1)prime number()
+using System;
+ class Demo
+ {
+ static void prime()
+ {
+     int n,flag=0; 
+ 
+        Console.WriteLine("Enter a number :");
+        n=Convert.ToInt32(Console.ReadLine());
+        for(int i=2;i<=n;i+=2)
+        {
+            if(n%i==0)
+        {
+            flag=1;
+            break;
+        }
+        }
+        if(flag==0)
+        
+        {
+            Console.WriteLine("number is prime");
+        }
+        else{
+             Console.WriteLine("number is not prime");
+        }
+}
+public static void Main(String[]args)
+{
+    for(int i=0;i<=1;i++){
+        prime();
+    }
+}
+}
+
+//2)pattern
+using System;
+ class pattern
+ {
+ static void trianglePattern()
+ {
+     int i,j,n; 
+ 
+        Console.WriteLine("Enter a number :");
+        n=Convert.ToInt32(Console.ReadLine());
+        for( i=0;i<=n;i++)//outer
+        {
+          Console.Write(" "); //print space
+          
+          for( j=0;j<=i;j++);//inner
+        {
+            
+        
+            Console.WriteLine(" *");//print star
+        }
+        
+             Console.WriteLine();//ending line after each row
+        }
+}
+public static void Main(String[]args)
+{
+   trianglePattern();
+   for(int i=0;i<0;i++)
+   {
+       trianglePattern();
+   }
+    }
+}
+
+//3)dissarium
+using System;
+ class Dissarium
+ {
+ static void trianglePattern()
+ {
+     int n,n1,temp=0,count=0;sum=0;f1=1;; 
+ 
+        Console.WriteLine("Enter a number :");
+        n=Convert.ToInt32(Console.ReadLine());
+       temp=n;
+ }
+ while(temp!=0)
+ {
+     count++;
+     temp/=10;
+ }
+ temp=n
+ 
+ while(temp > 0);
+ {
+     n1=temp%10;
+     temp/=10;
+     f1=1;
+     for(int i=1;i<=count;i++)
+     {
+     f1=f1*n1;    
+     }
+     sum=sum+f1;
+     
+     count--;
+ }
+   if(sum==n) 
+    Console.WriteLine("Dissarium number");
+    else
+     Console.WriteLine("not Dissarium number");
+ }
+public static void Main(String[]args)
+{
+   Dissarium();
+   for(int i=0;i<0;i++)
+   {
+       Dissarium();
+   }
+    }
+}
+4) triangle pattern
+using System;
+class Demo
+{
+	  static void  trianglePattern()
+	{
+		  int n ,i,j;
+		Console.WriteLine(" Enter the number :");
+	n=Convert.ToInt32(Console.ReadLine());
+		 for(i=0; i<=n; i++)//outer
+		{
+			Console.Write("  ");//print space
+
+		for(j=0; j<=i; j++) //inner
+			{
+			Console.Write("  1"); // print star
+			}
+			Console.WriteLine(); //ending line after each row
+		}
+	}
+	 
+	public static void Main(String[] args){
+		trianglePattern();
+		for(int i=0;i<0;i++)
+		{
+			trianglePattern();
+		}
+	}
+
+}
+
+5)Armstrong
+using System;
+class Demo
+
+{
+	 static void  Armstrong()
+		 { 
+		 int n,n1,f1=1,temp=1 ,sum=0;
+		Console.WriteLine(" Enter the numbers");
+		
+		n=Convert.ToInt32(Console.ReadLine());
+		temp=n; 
+		while(n>0)
+		{
+			n1=n%10;
+			sum=sum+(n1*n1*n1);
+				n=n/10;
+		}
+		if(temp==sum){
+		Console.WriteLine("Armsrtong no");
+		}
+		else{
+			Console.WriteLine(" Not Armsrtong no");
+		}
+
+	}
+	public static void Main(String []args)
+		{
+	 Armstrong();
+	 
+		} 
+}
+
+6)max from an array
+
+using System;
+class Demo
+{
+	  static void max()
+	{
+		  int n,i,max;
+Console.WriteLine("Enter the number:");
+		
+		n=Convert.ToInt32(Console.ReadLine());
+		for(i=0;i<n;i++)
+		{
+			
+			max=min=n;
+        
+		 
+			{
+				Console.WriteLine("max number"+max);
+			}
+			else
+			{
+           Console.WriteLine(" Not max number"+min);
+	}
+	}
+
+	public static void Main(String[]args) 
+	{
+		max();
+		for(i=0;i<0;i++){
+			max();
+		}
+
+	} 
+	}
+	
+
+7)	Addition 
+using System;
+public class Add{
+    static void add(){
+        Convert.ToInt32(Console.ReadLine());
+        int a,b,c;
+        Console.WriteLine("Enter first number :");
+        a=Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("Enter second number :");
+        b=Convert.ToInt32(Console.ReadLine());
+
+        c=a+b;
+    Console.WriteLine(c);
+    }
+    public static void Main (String[] args){
+        add();
+        add();
+    }
+}
+8)	Armstrong 
+using System;
+public class Armstrong{
+    static void armstrong(){
+        int i,n1,n,temp=1,sum=0;
+        Convert.ToInt32(Console.ReadLine());
+     Console.WriteLine("Enter a number :");
+        n=Convert.ToInt32(Console.ReadLine());
+        temp=n;
+        while(n>0){
+            n1=n%10;
+            n=n/10;
+            sum=sum+(n1*n1*n1);
+        }
+        if(temp==sum){
+            Console.WriteLine("Armstrong number.");
+        }
+        else{
+            Console.WriteLine("Not armstrong number.");
+        }
+    }
+    public static void Main(String[] args){
+        armstrong();
+    }
+}
+9)	armstong sec
+using System;
+public class ArmstrongSec{
+    static String armstrong(){
+        int n1,n,temp=1,sum=0;
+        Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Enter a number :");
+        n= Convert.ToInt32(Console.ReadLine());
+
+        temp=n;
+        while(n>0){
+            n1=n%10;
+            n=n/10;
+            sum=sum+(n1*n1*n1);
+        }
+        if(temp==sum){
+            return("Armstrong number.");
+        }
+        else{
+            return("Not armstrong number.");
+        }
+    }
+    public static void Main(String[] args){
+        String a=armstrong();
+        Console.WriteLine(a);
+    }
+}
+10)	disserium 
+using System;
+public class Disarium{
+    static void disarium(){
+        Convert.ToInt32(Console.ReadLine());
+        int num, originalNum, sum = 0, digitsCount = 0, temp, power = 1, digit;
+        Console.Write("Enter a number: ");
+        num =Convert.ToInt32(Console.ReadLine());
+
+        originalNum = num;
+        temp = num;
+        while (temp != 0) {
+            temp /= 10;
+            digitsCount++;
+        }
+        temp = num;
+        while (temp != 0) {
+            digit = temp % 10;
+            power = 1;
+            for (int i = 1; i <= digitsCount; i++) {
+                power =power*digit;
+            }
+            sum =sum+power;
+            digitsCount--;
+            temp /= 10;
+        }
+        if (sum == originalNum) {
+        Console.WriteLine(originalNum + " is a Disarium number.");
+        } else {
+            Console.WriteLine(originalNum + " is not a Disarium number.");
+        }
+    }
+    public static void Main(String[] args){
+        disarium();
+    }
+}
+11)	factorial
+using System;
+public class Factorial{
+    static int fact(){
+        int fact=1,n;
+        Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Enter a number :");
+        n=Convert.ToInt32(Console.ReadLine());
+
+        for(int i=n;i>1;i--){
+            fact=fact*i;
+        }
+        return(fact);
+    }
+    public static void Main(String[] args){
+        int a=fact();
+        Console.WriteLine(a);
+    }
+}
+12) max
+using System;
+public class Max{
+    static void arraymax(){
+        Convert.ToInt32(Console.ReadLine());
+        int i,n,min,max;
+        Console.WriteLine("Enter the size of array :");
+        n=Convert.ToInt32(Console.ReadLine());
+
+        int []a=new int[n];
+        Console.WriteLine("Enter "+n+" Elements :");
+        for(i=0;i<n;i++){
+            a[i]=Convert.ToInt32(Console.ReadLine());
+
+        }
+        max=min=a[0];
+        for(i=1;i<n;i++){
+            if(a[i]>max){
+                max=a[i];
+            }
+            if(a[i]<min){
+                min=a[i];
+            }
+        }
+    Console.WriteLine("Max numbers is :"+max);
+        Console.WriteLine("Min numbers is :"+min);
+    }
+    public static void Main(String[] args){
+        arraymax();
+    }
+}
+13)	prime
+using System;
+public class Prime {
+    static void prime() {
+        int i, j, n, flag;
+        Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Enter a number:");
+        n =Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Prime numbers up to " + n + " are:");
+        for (i = 2; i <= n; i++) {
+            flag = 1;
+            for (j = 2; j < i; j++) {
+                if (i % j == 0) {
+                    flag = 0;
+                    break;
+                }
+            }
+            if (flag == 1) {
+                Console.Write(" " + i);
+            }
+        }
+        Console.WriteLine();
+    }
+    public static void Main(String[] args) {
+        prime();
+    }
+}
+14)Pronic
+using System;
+public class Pronic{
+    static String pronic(){
+        Convert.ToInt32(Console.ReadLine());
+        int i,n,flag=0;
+        Console.WriteLine("Enter a number :");
+        n=Convert.ToInt32(Console.ReadLine());
+
+        for(i=1;i<=(n/2);i++){
+            if(n==(i*(i+1))){
+                flag=1;
+                break;
+            }
+        }
+        if(flag==1){
+            return("Pronic number");
+        }
+        else {
+            return("Not pronic number");
+        }        
+    }
+    public static void Main(String[] args){
+        String p=pronic();
+        Console.WriteLine(p);
+    }
+}
+15) perfect
+using System;
+public class Perfect{
+    static String perfect(){
+        Convert.ToInt32(Console.ReadLine());
+        int n,sum=0,i;
+    Console.WriteLine("Enter a number :");
+        n=Convert.ToInt32(Console.ReadLine());
+
+        for(i=1;i<=(n/2);i++){
+            if(n%i==0){
+                sum=sum+i;
+            }
+        }
+        if(sum==n){
+            return ("Perfect number.");
+        }
+        else {
+            return "Not perfect Number.";
+        }
+    }
+    public static void Main(String[] args){
+        String num=perfect();
+        Console.WriteLine(num);
+    }
+}
+16) krushmurti
+using System;
+public class krishnmurti{
+    static String krishnmurti(){
+        int i,n,n1,f1=1,sum=0,temp;
+        Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Enter the number");
+        n=Convert.ToInt32(Console.ReadLine());
+
+        temp=n;
+        while(n>0)
+        {
+            n1=n%10;
+            n=n/10;
+            f1=1;
+            for(i=n1;i>1;i--)
+            {
+                f1=f1*i;
+                
+            }
+            sum=sum+f1;
+        }
+    if(temp==sum){
+            return("Krishnmurti number");
+        }
+        else{
+            return("Not krishnmurti number");
+        }
+    }
+    public static void Main(String[] args){
+        String k=krishnmurti();
+        Console.WriteLine(k);
+    }
+}
+17)  No parameter & No return value
+
+using System;
+
+public class HelloWorld
+{
+  
+ public static void add() // No Parameter  
+        {  
+           int a,b,c;
+	
+	Console.WriteLine("Enter 2 number");
+	a=Convert.ToInt32(Console.ReadLine());
+	b=Convert.ToInt32(Console.ReadLine());
+	c=a+b;
+	Console.WriteLine("{0}",c);	
+        }  
+public static void max() // No Parameter  
+        {  
+           int a,b,c;
+	
+	Console.WriteLine("Enter 2 number");
+	a=Convert.ToInt32(Console.ReadLine());
+	b=Convert.ToInt32(Console.ReadLine());
+	c=(a>b)?a:b;
+	Console.WriteLine("Max={0}",c);	
+        }  
+      
+        static void Main(string[] args)  
+        {  
+        
+       
+       add(); add();add();max();
+
+//for(int i=1;i<=5;i++)
+//add();
+         
+        }  
+}
+18) factorial // no para with return value
+using System;
+
+public class HelloWorld
+{
+      public static int fact() // No Parameter  void-int     1
+        {  
+           int i,n,f1=1;
+	
+	Console.WriteLine("Enter 1 number");
+	n=Convert.ToInt32(Console.ReadLine());
+	for(i=n;i>1;i--)
+	{
+	         f1=f1*i;			
+	}
+	return(f1);//2
+        }  
+         
+        static void Main(string[] args)  
+        {  
+        
+       int f1= fact(); //3
+          	Console.WriteLine("Fact={0}",f1);//4
+        }  
+}
+19) 
+using System;
+
+public class HelloWorld
+{
+     public static string prime()//void-string
+	{
+	int n,div=0,i;
+	
+	Console.WriteLine("Enter 1 numbers:");
+n=Convert.ToInt32(Console.ReadLine());
+	for(i=2;i<=(n/2);i++)
+	{
+		if(n%i==0)
+		{
+			div=1;
+		break;
+		}
+	}	
+	if(div==0)
+		return "No is prime";//return o/p
+		else
+	    return "no is not prime";
+	
+	}
+        static void Main(string[] args)  
+        {  
+        
+       string f1= prime(); 
+          	Console.WriteLine("{0}",f1);
+        }  
+}
+20) power  
+using System;
+
+public class Method1
+{
+
+	
+	static int power()//no para with return value 1 void(null)--->int/Anydatatype
+	{
+		int a,i,b,f1=1;
+		
+		Console.WriteLine("Enter 1 numbers:");
+		a=Convert.ToInt32(Console.ReadLine());
+		b=Convert.ToInt32(Console.ReadLine());
+		for(i=1;i<=b;i++)
+			f1=f1*a;
+	   	return(f1);//2
+		
+	}
+	
+	
+		public static void Main(string[] args) 
+	
+	{
+			
+			
+		  int f1=power();
+		  
+		  Console.WriteLine("Pwer={0} ",f1);//4
+			
+		
+	}
+}
+21)  Area of Circle
+using System;
+
+public class Method1
+{
+
+	
+	static double Areac()//no para with return value 1 void(null)--->int/Anydatatype
+	{
+		double a,r;
+		
+		Console.WriteLine("Enter radius");
+		r=Convert.ToDouble(Console.ReadLine());
+		a=3.14*r*r;
+	   	return(a);//2
+		
+	}
+	
+	
+		public static void Main(string[] args) 
+	
+	{
+			
+			
+		 double a=Areac();
+		  
+		  Console.WriteLine("Area of circle ={0}",a);//4
+			
+		
+	}
+}
+22)  With parameter(argument) & no return value
+using System;
+public class Method3
+{
+	static void add(int a,int b)//formal parameter
+	{
+	int c;
+	c=a+b;
+	Console.WriteLine("Add=",c);	
+	}
+		public static void Main(string[] args) 
+	
+	{
+			int a,b;
+			
+			Console.WriteLine("Enter 2 numbers:");
+			a=Convert.ToInt32(Console.ReadLine());
+			b=Convert.ToInt32(Console.ReadLine());
+			add(a,b);//1)actual parameter 2)call by value
+			
+	}
+
+}
+23) using System;
+
+public class Method3
+{
+	static void PE(double m,double g,double h)//formal parameter
+	{
+	double pe;
+	pe=m*g*h;
+	Console.WriteLine("PE=",pe);	
+	}
+		public static void Main(string[] args) 
+	
+	{
+			double m,g,h;
+			
+			Console.WriteLine("Enter m,g,h");
+			m=Convert.ToDouble(Console.ReadLine());
+			g=Convert.ToDouble(Console.ReadLine());
+			h=Convert.ToDouble(Console.ReadLine());
+			
+			PE(m,g,h);//1)actual parameter 2)call by value
+			
+	}
+}
+24)  using System;
+public class Method3
+{
+	static void magic(int n)//formal parameter
+	{
+	int n1,sum=0;
+	while(n>10)
+	{
+		while(n>0)
+		{
+		n1=n%10; n=n/10;sum=sum*10+n1;
+		
+		}
+		n=sum;
+	}
+	if(n==1)
+	Console.WriteLine("Magic");	
+	else
+	Console.WriteLine("Not Magic");	
+	}
+		public static void Main(string[] args) 
+	
+	{
+			int n;
+			
+			Console.WriteLine("Enter n");
+			n=Convert.ToInt32(Console.ReadLine());
+			
+			magic(n);//1)actual parameter 2)call by value
+			
+	}
+}
+25) With parameter & with return value
+using System;
+
+public class Method4
+{
+	static double PE(double m,double g,double h)//formal parameter
+	{
+	double pe;
+	pe=m*g*h;
+	return pe;	
+	}
+		public static void Main(string[] args) 
+	
+	{
+			double m,g,h,pe;
+			
+			Console.WriteLine("Enter m,g,h");
+			m=Convert.ToInt32(Console.ReadLine());
+			g=Convert.ToInt32(Console.ReadLine());
+			h=Convert.ToInt32(Console.ReadLine());
+			
+			pe=PE(m,g,h);//1)actual parameter 2)call by value    n=strlen(s1)  
+			Console.WriteLine("PE={0}",pe);
+			}
+}
+26) using System;
+
+public class Method4
+{
+	static int fact(int a)//formal parameter
+	{
+	int f1=1,i;
+	for(i=a;i>1;i--)
+	{
+		f1=f1*i;
+	}
+	return(f1);	
+	}
+		public static void Main(string[] args) 
+	
+	{		int a,f1;
+			
+			Console.WriteLine("Enter 1 numbers:");
+			a=Convert.ToInt32(Console.ReadLine());
+			
+			f1=fact(a);//1)actual parameter 2)call by value   a=sqrt(b)
+			Console.WriteLine("FAcorial={0}",f1);
+			
+	}
+
+}
+27) 1)Write any 3 programs which having 4 types of function
+sub 4 types
+using System;
+public class HelloWorld
+{
+  
+ public static void sub() // No Parameter  
+        {  
+           int a,b,c;
+	
+	Console.WriteLine("Enter 2 number");
+	a=Convert.ToInt32(Console.ReadLine());
+	b=Convert.ToInt32(Console.ReadLine());
+	c=a-b;
+	Console.WriteLine("Sub1= {0}",c);	
+        }  
+        public static int sub1() // No Parameter  
+        {  
+           int a,b,c;
+	
+	Console.WriteLine("Enter 2 number");
+	a=Convert.ToInt32(Console.ReadLine());
+	b=Convert.ToInt32(Console.ReadLine());
+	c=a-b;
+		return c;
+        }  
+      public static void sub3(int a,int b)  
+        {  
+           int c;
+	c=a-b;
+	Console.WriteLine("Sub3= {0}",c);	
+        }  
+        
+        
+         public static int sub4(int a,int b)  
+        {  
+           int c;
+	c=a-b;
+	return(c);
+        }  
+        
+        static void Main(string[] args)  
+        {  
+        int a,b;
+       
+       sub(); 
+       int c=sub1();
+       Console.WriteLine("Sub1= {0}",c);
+       	Console.WriteLine("Enter 2 number");
+	a=Convert.ToInt32(Console.ReadLine());
+	b=Convert.ToInt32(Console.ReadLine());
+         sub3(a,b);
+         
+        c=sub4(a,b);
+        Console.WriteLine("Sub4= {0}",c);
+        }  
+}
+28) sumd 4 types
+prime 4 type
+pallindrom 4 type
+using System;
+
+public class FunDemo
+{
+    static void pattern()
+	{
+int n;
+
+Console.WriteLine("Enter value of n");
+n=Convert.ToInt32(Console.ReadLine());	
+	for(int i=1;i<=n;i++)
+	{
+		for(int j=1;j<=1;j++)
+		{
+			Console.Write("{0}",j);
+		}
+		Console.WriteLine();
+	}
+	}
+static void pattern1(int n)
+	{
+
+
+
+	for(int i=1;i<=n;i++)
+	{
+		for(int j=1;j<=i;j++)
+		{
+			Console.Write("* ");
+		}
+		Console.WriteLine();
+	}
+	}
+	static void prime()
+	{
+int n,i,flag=0;
+
+Console.WriteLine("Enter value of n");
+n=Convert.ToInt32(Console.ReadLine());	
+		
+		for(i=2;i<=(n/2);i++)
+		{
+		if(n%i==0)
+		{
+		flag=1;
+		break;
+		}
+		}
+		
+		if(flag==0)
+			Console.WriteLine("No is prime");
+		else
+			Console.WriteLine("No is not prime");
+	}
+	static string pal()
+	{
+int n,i,sum=0,n1,p;
+
+Console.WriteLine("Enter value of n");
+n=Convert.ToInt32(Console.ReadLine());	
+		p=n;
+		while(p>0)
+		{
+		n1=p%10;
+		p=p/10;
+		sum=(sum*10)+n1;
+		}
+		
+		if(sum==n)
+			return "No is pal";
+		else
+			return "No is not pal";
+	}
+	
+	static int power(int x,int n)
+{
+                int f1=1,i;
+
+	for(i=1;i<=n;i++)
+	{
+	f1=f1*x;
+	}
+	return (f1);
+	
+}
+	public static void Main(string[] args) 
+	{
+	                  int n,x;
+		
+		
+		
+		pattern();
+		
+		prime();		
+		Console.WriteLine("{0}",pal());	
+		Console.WriteLine("Enter value of n");
+		n=Convert.ToInt32(Console.ReadLine());	
+		Console.WriteLine("Enter value of x");
+		x=Convert.ToInt32(Console.ReadLine());		
+		Console.WriteLine("Power={0}",power(x,n));
+		pattern1(n);
+
+	}
+
+}
+
+29)using System;
+
+public class HelloWorld
+{
+      public static int fact() // No Parameter  void-int     1
+        {  
+           int i,n,f1=1;
+	
+	Console.WriteLine("Enter 1 number");
+	n=Convert.ToInt32(Console.ReadLine());
+	for(i=n;i>1;i--)
+	{
+	         f1=f1*i;			
+	}
+	return(f1);//2
+        }  
+         
+        static void Main(string[] args)  
+        {  
+        
+       int f1= fact(); //3
+          	Console.WriteLine("Fact={0}",f1);//4
+        }  
+}
+
+30)using System;
+
+public class HelloWorld
+{
+  
+ public static void add() // No Parameter  
+        {  
+           int a,b,c;
+	
+	Console.WriteLine("Enter 2 number");
+	a=Convert.ToInt32(Console.ReadLine());
+	b=Convert.ToInt32(Console.ReadLine());
+	c=a+b;
+	Console.WriteLine("{0}",c);	
+        }  
+public static void max() // No Parameter  
+        {  
+           int a,b,c;
+	
+	Console.WriteLine("Enter 2 number");
+	a=Convert.ToInt32(Console.ReadLine());
+	b=Convert.ToInt32(Console.ReadLine());
+	c=(a>b)?a:b;
+	Console.WriteLine("Max={0}",c);	
+        }  
+      
+        static void Main(string[] args)  
+        {  
+        
+       
+       add(); add();add();max();
+
+//for(int i=1;i<=5;i++)
+//add();
+         
+        }  
+
+
+31)using System;
+
+public class HelloWorld
+{
+      public static int fact() // No Parameter  void-int     1
+        {  
+           int i,n,f1=1;
+	
+	Console.WriteLine("Enter 1 number");
+	n=Convert.ToInt32(Console.ReadLine());
+	for(i=n;i>1;i--)
+	{
+	         f1=f1*i;			
+	}
+	return(f1);//2
+        }  
+         
+        static void Main(string[] args)  
+        {  
+        
+       int f1= fact(); //3
+          	Console.WriteLine("Fact={0}",f1);//4
+        }  
+}
+
+
+
+
+
+
+
+
