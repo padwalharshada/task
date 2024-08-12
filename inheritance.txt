@@ -1,0 +1,897 @@
+ 1)student
+
+using System;
+
+public class Student
+{
+    private int rollno;
+    private string name;
+
+    public Student(int rollno, string name)
+    {
+        this.rollno = rollno;
+        this.name = name;
+    }
+
+    public void Display()
+    {
+        Console.WriteLine("Roll No: " + rollno);
+        Console.WriteLine("Name: " + name);
+    }
+}
+
+public class X_Student : Student
+{
+    private string cname;
+    private double salary;
+
+    public X_Student(int rollno, string name, string cname, double salary)
+        : base(rollno, name)
+    {
+        this.cname = cname;
+        this.salary = salary;
+    }
+
+    public void Show()
+    {
+        Display();
+        Console.WriteLine("Company Name: " + cname);
+        Console.WriteLine("Salary: " + salary);
+    }
+}
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        X_Student x1 = new X_Student(101, "John Doe", "TechCorp", 50000);
+        x1.Show();
+}
+}
+
+2)Area
+using System;
+
+class Area 
+{
+	public double r,A;
+	public Area(double r)
+	{
+		this.r=r;
+	}
+   public void cal_area()
+    {
+    	A=3.14*r*r;
+    	Console.WriteLine("Radius={0}\nArae={0}",r,A);
+    }
+}
+class Volume : Area
+{
+	double h,v;
+public Volume(double r,double h):	base(r)
+	{
+	
+		this.h=h;
+		
+	}
+public void cal_vol()
+	{
+		
+		v=A*h;
+		Console.WriteLine("H={0}\nVolume={0}",h,v);
+	}
+}
+public class Single
+{
+
+	public static void Main(string[] args) 
+	{
+	double r,h;
+	
+	Console.WriteLine("Enter r & h");
+	r=Convert.ToDouble(Console.ReadLine());
+	h=Convert.ToDouble(Console.ReadLine());
+	Volume v1= new Volume(r, h);
+		v1.cal_area();
+		v1.cal_vol();
+	}
+
+}
+
+
+3)Student
+
+using System;
+
+ public class Stud
+{
+    int rn;
+    string name;
+    
+    public Stud(int rn, string name)
+    {
+        this.rn = rn;
+        this.name = name;
+    }
+    
+    public void show()
+    {
+        Console.WriteLine("Roll number is " + rn);
+        Console.WriteLine("Name is " + name);
+    }
+}
+
+public class Xstud : Stud
+{
+    string cname;
+    int salary;
+    
+    public Xstud(int rn, string name, string cname, int salary) : base(rn, name)
+    {
+        this.cname = cname;
+        this.salary = salary;
+    }
+    
+    public void display()
+    {
+        Console.WriteLine("Company name is " + cname);
+        Console.WriteLine("Salary is " + salary);
+    }
+}
+
+public class Single
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("Enter your name:");
+        string name = Console.ReadLine();
+        
+        Console.WriteLine("Enter roll number:");
+        int rn = Convert.ToInt32(Console.ReadLine());
+        
+        Console.WriteLine("Enter your company name:");
+        string cname = Console.ReadLine();
+        
+        Console.WriteLine("Enter your salary:");
+        int salary = Convert.ToInt32(Console.ReadLine());
+        
+        Xstud xs1 = new Xstud(rn, name, cname, salary);
+        xs1.show();
+        xs1.display();
+}
+}
+4)Define an Employee class with suitable attributes having getSalary() method, which returns salary withdrawn by a particular employee. Write a class Manager which : a class Employee, the getSalary() method, which will return salary of manager by adding traveling allowance(50%), house rent allowance(40%),dinner allowance(20%),gross salary etc.
+
+using System;
+
+class Employee
+{
+    protected string name;
+    protected int id;
+    protected double basicSalary;
+
+    public Employee(string name, int id, double basicSalary)
+    {
+        this.name = name;
+        this.id = id;
+        this.basicSalary = basicSalary;
+    }
+
+    public virtual double getSalary()
+    {
+        return basicSalary;
+    }
+
+    public void showDetails()
+    {
+        Console.WriteLine("Employee Name: " + name);
+        Console.WriteLine("Employee ID: " + id);
+        Console.WriteLine("Basic Salary: " + basicSalary);
+    }
+}
+
+class Manager : Employee
+{
+    public Manager(string name, int id, double basicSalary) : base(name, id, basicSalary)
+    {
+    }
+
+    public override double getSalary()
+    {
+        double travelAllowance = 0.50 * basicSalary;
+        double houseRentAllowance = 0.40 * basicSalary;
+        double dinnerAllowance = 0.20 * basicSalary;
+        return basicSalary + travelAllowance + houseRentAllowance + dinnerAllowance;
+    }
+
+    public void showManagerDetails()
+    {
+        showDetails();
+        Console.WriteLine("Total Salary with allowances: " + getSalary());
+    }
+}
+
+public class SingleInheritance
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("Enter employee name:");
+        string name = Console.ReadLine();
+
+        Console.WriteLine("Enter employee ID:");
+        int id = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("Enter basic salary:");
+        double basicSalary = Convert.ToDouble(Console.ReadLine());
+
+        Manager manager = new Manager(name, id, basicSalary);
+        manager.showManagerDetails();
+    }
+}
+
+
+
+
+*****multilevel inheritance******
+1)Area
+using System;
+
+class Area 
+{
+public double r,A;
+	public Area(double r)
+	{
+		this.r=r;
+	}
+   public void cal_area()
+    {
+    	A=3.14*r*r;
+    	Console.WriteLine("Radius={0}\nArae={0}",r,A);
+    }
+}
+class Volume : Area
+{
+	public double h,v;
+public Volume(double r,double h):	base(r)
+	{
+		this.h=h;	
+	}
+public void cal_vol()
+	{
+		base.cal_area();
+		v=A*h;
+		Console.WriteLine("H={0}\nVolume={0}",h,v);
+	}
+}
+class volume1 : Volume
+{
+public double l,v1;
+public volume1(double r,double h,double l):base(r,h)
+{
+this.l=l;
+} 
+public void cal_vol1()
+{
+base.cal_vol();
+v1=v*l;
+Console.WriteLine("Volume1="+v1);
+}}
+public class Single
+{
+	public static void Main(string[] args) 
+	{
+	double r,h,l;
+	Console.WriteLine("Enter r & h");
+	r=Convert.ToDouble(Console.ReadLine());
+	h=Convert.ToDouble(Console.ReadLine());
+	l=Convert.ToDouble(Console.ReadLine());
+	volume1 v1= new volume1(r, h,l);
+				v1.cal_vol1();
+	}
+}
+
+
+2)student
+using System;
+
+class Student
+{
+    public int id;
+    public string name;
+    public string className;     
+ public void getDetails(int id, string name, string className)
+    {
+        this.id = id;
+        this.name = name;
+        this.className = className;
+    }
+
+    public void displayDetails()
+    {
+        Console.WriteLine("ID: " + id);
+        Console.WriteLine("Name: " + name);
+        Console.WriteLine("Class: " + className);
+    }
+}
+
+class Marks : Student
+{
+    public int m1, m2, m3;
+
+    public void getMarks(int m1, int m2, int m3)
+    {
+        this.m1 = m1;
+        this.m2 = m2;
+        this.m3 = m3;
+    }
+
+    public void displayMarks()
+    {
+        Console.WriteLine("Marks 1: " + m1);
+        Console.WriteLine("Marks 2: " + m2);
+        Console.WriteLine("Marks 3: " + m3);
+    }
+}
+
+class Result : Marks
+{
+    public int total;
+    public double percentage;
+
+    public void calculateMarks()
+    {
+        total = m1 + m2 + m3;
+        percentage = total / 3.0;
+    }
+
+    public void displayResult()
+    {
+        Console.WriteLine("Total Marks: " + total);
+        Console.WriteLine("Percentage: " + percentage + "%");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Result studentResult = new Result();
+
+        studentResult.getDetails(1, "John Doe", "10th Grade");
+        studentResult.getMarks(85, 90, 80);
+        studentResult.calculateMarks();
+
+        studentResult.displayDetails();
+        studentResult.displayMarks();
+        studentResult.displayResult();
+
+        Console.ReadLine();
+    }
+}
+
+
+*****hierarchical inheritance******
+
+
+1)employee
+using System;
+class Emp12
+{
+   double id;
+   string name,desg;
+    public Emp12(Double id,string name,string desg)
+    {
+        this.id=id;
+        this.name=name;
+        this.desg=desg;
+    }
+ 
+	public void display()
+    {
+        Console.WriteLine("id:"+id);
+        Console.WriteLine("name :"+name);
+        Console.WriteLine("Designation :"+desg);
+    }
+}
+class part_time : Emp12
+{
+    double hr_rate;
+    int n_hr;
+ public part_time(Double id,string name,string desg,int n_hr,double hr_rate) :base( id,name,desg)
+
+    {
+        this.n_hr=n_hr;
+        this.hr_rate=hr_rate;       
+    }
+    public void  cal_sal()
+    {
+        Console.WriteLine("No of hr:"+n_hr);
+        Console.WriteLine("Hr rate:"+hr_rate);
+        Console.WriteLine("Salary:"+(n_hr*hr_rate));
+    }
+}
+class Full_time : Emp12
+{
+    double day_rate;
+    int n_day;	
+   public Full_time(Double id,string name,string desg,int n_day,double day_rate): base(id,name,desg)
+    {
+        
+        this.n_day=n_day;
+        this.day_rate=day_rate;       
+    }
+    public void  cal_sal()
+    {
+        Console.WriteLine("No of hr:"+n_day);
+        Console.WriteLine("Hr rate:"+day_rate);
+        Console.WriteLine("Salary:"+(n_day*day_rate));
+    }
+}
+public class Hierachical_demo 
+{
+	public static void Main(string[] args) 
+	{
+		 double id;
+		    string name,desg;
+		    double hr_rate;
+		    int n_hr,ch;
+		    double day_rate;
+		    int n_day;
+		    
+		    do
+		    {
+	        Console.WriteLine("1:Accept details of part time empl");
+	        Console.WriteLine("2:Accept details of full time empl");
+	        Console.WriteLine("3:Exit");
+	        Console.WriteLine("enter u r choice");
+	         ch = Convert.ToInt32(Console.ReadLine());
+	        
+	        switch(ch)
+	        {
+	        case 1:
+	        	Console.WriteLine("Enter id,name & desg,n0f hr,hr rate");
+	            id=Convert.ToDouble(Console.ReadLine());
+	            name=Console.ReadLine();
+	            desg=Console.ReadLine();
+	            n_hr=Convert.ToInt32(Console.ReadLine());
+	            hr_rate=Convert.ToDouble(Console.ReadLine());
+	            part_time p1=new part_time(id, name, desg, n_hr, hr_rate);
+	            p1.display();
+	            p1.cal_sal();
+	        	
+	        	break;
+	        case 2:
+	        	Console.WriteLine("Enter id,name & desg,n0f day,day rate");
+	            id=Convert.ToDouble(Console.ReadLine());
+	            name=Console.ReadLine();
+	            desg=Console.ReadLine();
+	            n_day=Convert.ToInt32(Console.ReadLine());
+	            day_rate=Convert.ToDouble(Console.ReadLine());
+	            Full_time f1=new Full_time(id, name, desg, n_day, day_rate);
+	            f1.display();
+	            f1.cal_sal();
+	        	break;
+	        case 3:
+	        	//exit(0);
+	        	break;
+	        	default:Console.WriteLine("Invalid choice");break;
+	        }	
+		    }
+		    while(ch<=3);
+}
+}
+
+2)Write a C# program to create a super class Vehicle having members Company and price. Derive 2 different classes LightMotorVehicle (members – mileage) and HeavyMotorVehicle (members – capacity-in-tons). Accept the information for n vehicles and display the information in appropriate form. While taking data, ask the user about the type of vehicle first.(n no of object)
+using System;
+using System.Collections.Generic;
+
+class Vehicle
+{
+    public string Company;
+    public double Price;
+
+    public Vehicle(string company, double price)
+    {
+        Company = company;
+        Price = price;
+    }
+
+    public virtual void DisplayInfo()
+    {
+        Console.WriteLine($"Company: {Company}, Price: {Price}");
+    }
+}
+
+class LightMotorVehicle : Vehicle
+{
+    public double Mileage;
+
+    public LightMotorVehicle(string company, double price, double mileage)
+        : base(company, price)
+    {
+        Mileage = mileage;
+    }
+
+    public override void DisplayInfo()
+    {
+        base.DisplayInfo();
+        Console.WriteLine($"Mileage: {Mileage}");
+    }
+}
+
+class HeavyMotorVehicle : Vehicle
+{
+    public double CapacityInTons;
+
+    public HeavyMotorVehicle(string company, double price, double capacityInTons)
+        : base(company, price)
+    {
+        CapacityInTons = capacityInTons;
+    }
+
+    public override void DisplayInfo()
+    {
+        base.DisplayInfo();
+        Console.WriteLine($"Capacity in Tons: {CapacityInTons}");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        List<Vehicle> vehicles = new List<Vehicle>();
+
+        Console.Write("Enter the number of vehicles: ");
+        int n = int.Parse(Console.ReadLine());
+
+        for (int i = 0; i < n; i++)
+        {
+            Console.Write("Enter the type of vehicle (light/heavy): ");
+            string type = Console.ReadLine().ToLower();
+
+            Console.Write("Enter the company: ");
+            string company = Console.ReadLine();
+            Console.Write("Enter the price: ");
+            double price = double.Parse(Console.ReadLine());
+
+            if (type == "light")
+            {
+                Console.Write("Enter the mileage: ");
+                double mileage = double.Parse(Console.ReadLine());
+                vehicles.Add(new LightMotorVehicle(company, price, mileage));
+            }
+            else if (type == "heavy")
+            {
+                Console.Write("Enter the capacity in tons: ");
+                double capacityInTons = double.Parse(Console.ReadLine());
+                vehicles.Add(new HeavyMotorVehicle(company, price, capacityInTons));
+            }
+            else
+            {
+                Console.WriteLine("Invalid vehicle type. Skipping...");
+            }
+        }
+
+        Console.WriteLine("\nVehicle Information:");
+        foreach (var vehicle in vehicles)
+        {
+            vehicle.DisplayInfo();
+            Console.WriteLine();
+        }
+    }
+}
+
+
+3)Write a program which has class Movie(title,amount,no_of_ticket)  and inherit  
+Following  classes TaxedMovie(tax,finalAmount) and TaxFreeMovie(finalAmount).
+Use calculateTicketAmount() methodin both subclasses.
+Create objects of TaxedMovie and TaxFreeMovie in main class using super class reference print movies info with final amount for both the objects.
+
+using System;
+class Movie
+{
+    public string Title;
+    public double Amount;
+    public int NoOfTickets;
+
+    public Movie(string title, double amount, int noOfTickets)
+    {
+        Title = title;
+        Amount = amount;
+        NoOfTickets = noOfTickets;
+    }
+
+    public virtual void CalculateTicketAmount()
+    {
+        // This method will be overridden in derived classes
+    }
+
+    public virtual void DisplayInfo()
+    {
+        Console.WriteLine($"Title: {Title}");
+        Console.WriteLine($"Amount per Ticket: {Amount}");
+        Console.WriteLine($"Number of Tickets: {NoOfTickets}");
+    }
+}
+
+class TaxedMovie : Movie
+{
+    public double Tax;
+    public double FinalAmount;
+
+    public TaxedMovie(string title, double amount, int noOfTickets, double tax)
+        : base(title, amount, noOfTickets)
+    {
+        Tax = tax;
+    }
+
+    public override void CalculateTicketAmount()
+    {
+        FinalAmount = (Amount + Tax) * NoOfTickets;
+    }
+
+    public override void DisplayInfo()
+    {
+        base.DisplayInfo();
+        Console.WriteLine($"Tax per Ticket: {Tax}");
+        Console.WriteLine($"Final Amount: {FinalAmount}");
+    }
+}
+
+class TaxFreeMovie : Movie
+{
+    public double FinalAmount;
+
+    public TaxFreeMovie(string title, double amount, int noOfTickets)
+        : base(title, amount, noOfTickets)
+    {
+    }
+
+    public override void CalculateTicketAmount()
+    {
+        FinalAmount = Amount * NoOfTickets;
+    }
+
+    public override void DisplayInfo()
+    {
+        base.DisplayInfo();
+        Console.WriteLine($"Final Amount: {FinalAmount}");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        // Create TaxedMovie object using base class reference
+        Movie taxedMovie = new TaxedMovie("Inception", 10.0, 3, 2.0);
+        taxedMovie.CalculateTicketAmount();
+        Console.WriteLine("Taxed Movie Information:");
+        taxedMovie.DisplayInfo();
+        Console.WriteLine();
+
+        // Create TaxFreeMovie object using base class reference
+        Movie taxFreeMovie = new TaxFreeMovie("harshada", 8.0, 2);
+        taxFreeMovie.CalculateTicketAmount();
+        Console.WriteLine("Tax Free Movie Information:");
+        taxFreeMovie.DisplayInfo();
+    }
+}
+
+
+4) Create an  class “order” having members id,description.Create two subclasses “Purchase Order” and “Sales Order” having members vendor name and customer name respectively.Define methods accept and display in all cases. Create 3 objects each of Purchase Order and Sales Order and accept and display details.
+using System;
+using System.Collections.Generic;
+
+class Order
+{
+    public int Id;
+    public string Description;
+
+    public Order(int id, string description)
+    {
+        Id = id;
+        Description = description;
+    }
+
+    public virtual void Accept()
+    {
+        Console.Write("Enter Order ID: ");
+        Id = int.Parse(Console.ReadLine());
+        Console.Write("Enter Description: ");
+        Description = Console.ReadLine();
+    }
+
+    public virtual void Display()
+    {
+        Console.WriteLine($"Order ID: {Id}");
+        Console.WriteLine($"Description: {Description}");
+    }
+}
+
+class PurchaseOrder : Order
+{
+    public string VendorName;
+
+    public PurchaseOrder(int id, string description, string vendorName)
+        : base(id, description)
+    {
+        VendorName = vendorName;
+    }
+
+    public override void Accept()
+    {
+        base.Accept();
+        Console.Write("Enter Vendor Name: ");
+        VendorName = Console.ReadLine();
+    }
+
+    public override void Display()
+    {
+        base.Display();
+        Console.WriteLine($"Vendor Name: {VendorName}");
+    }
+}
+
+class SalesOrder : Order
+{
+    public string CustomerName;
+
+    public SalesOrder(int id, string description, string customerName)
+        : base(id, description)
+    {
+        CustomerName = customerName;
+    }
+
+    public override void Accept()
+    {
+        base.Accept();
+        Console.Write("Enter Customer Name: ");
+        CustomerName = Console.ReadLine();
+    }
+
+    public override void Display()
+    {
+        base.Display();
+        Console.WriteLine($"Customer Name: {CustomerName}");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        List<PurchaseOrder> purchaseOrders = new List<PurchaseOrder>();
+        List<SalesOrder> salesOrders = new List<SalesOrder>();
+
+        // Accept and display details for 3 Purchase Orders
+        for (int i = 0; i < 3; i++)
+        {
+            Console.WriteLine($"\nEnter details for Purchase Order {i + 1}:");
+            PurchaseOrder po = new PurchaseOrder(0, "", "");
+            po.Accept();
+            purchaseOrders.Add(po);
+        }
+
+        Console.WriteLine("\nPurchase Order Details:");
+        foreach (var po in purchaseOrders)
+        {
+            po.Display();
+            Console.WriteLine();
+        }
+
+        // Accept and display details for 3 Sales Orders
+        for (int i = 0; i < 3; i++)
+        {
+            Console.WriteLine($"\nEnter details for Sales Order {i + 1}:");
+            SalesOrder so = new SalesOrder(0, "", "");
+            so.Accept();
+            salesOrders.Add(so);
+        }
+
+        Console.WriteLine("\nSales Order Details:");
+        foreach (var so in salesOrders)
+        {
+            so.Display();
+            Console.WriteLine();
+        }
+    }
+}
+
+
+5)Write a program for multilevel inheritance such that country is inherited from continent. State is inherited from country. Display the place, state, country and continent
+
+using System;
+
+class Continent
+{
+    public string ContinentName;
+
+    public Continent(string continentName)
+    {
+        ContinentName = continentName;
+    }
+
+    public virtual void AcceptContinentDetails()
+    {
+        Console.Write("Enter Continent Name: ");
+        ContinentName = Console.ReadLine();
+    }
+
+    public virtual void DisplayContinentDetails()
+    {
+        Console.WriteLine($"Continent: {ContinentName}");
+    }
+}
+
+class Country : Continent
+{
+    public string CountryName;
+
+    public Country(string continentName, string countryName)
+        : base(continentName)
+    {
+        CountryName = countryName;
+    }
+
+    public virtual void AcceptCountryDetails()
+    {
+        AcceptContinentDetails();
+        Console.Write("Enter Country Name: ");
+        CountryName = Console.ReadLine();
+    }
+
+    public virtual void DisplayCountryDetails()
+    {
+        DisplayContinentDetails();
+        Console.WriteLine($"Country: {CountryName}");
+    }
+}
+
+class State : Country
+{
+    public string StateName;
+    public string PlaceName;
+
+    public State(string continentName, string countryName, string stateName, string placeName)
+        : base(continentName, countryName)
+    {
+        StateName = stateName;
+        PlaceName = placeName;
+    }
+
+    public void AcceptStateDetails()
+    {
+        AcceptCountryDetails();
+        Console.Write("Enter State Name: ");
+        StateName = Console.ReadLine();
+        Console.Write("Enter Place Name: ");
+        PlaceName = Console.ReadLine();
+    }
+
+    public void DisplayStateDetails()
+    {
+        DisplayCountryDetails();
+        Console.WriteLine($"State: {StateName}");
+        Console.WriteLine($"Place: {PlaceName}");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        State state = new State("", "", "", "");
+        
+        Console.WriteLine("Enter details for the place:");
+        state.AcceptStateDetails();
+
+        Console.WriteLine("\nDetails of the place:");
+        state.DisplayStateDetails();
+    }
+}
+
+
+
+
