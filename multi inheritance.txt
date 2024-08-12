@@ -1,0 +1,150 @@
+using System;
+
+class Student
+{
+    private int id;
+    private string name;
+    private string className;
+
+    public Student(int id, string name, string className)
+    {
+        this.id = id;
+        this.name = name;
+        this.className = className;
+    }
+
+    public void DisplayStudentInfo()
+    {
+        Console.WriteLine("Student ID: " + id);
+        Console.WriteLine("Name: " + name);
+        Console.WriteLine("Class: " + className);
+    }
+
+    public int GetId() => id;
+    public string GetName() => name;
+    public string GetClassName() => className;
+}
+
+class Marks : Student
+{
+    private int m1;
+    private int m2;
+    private int m3;
+
+    public Marks(int id, string name, string className, int m1, int m2, int m3) 
+        : base(id, name, className)
+    {
+        this.m1 = m1;
+        this.m2 = m2;
+        this.m3 = m3;
+    }
+
+    public void DisplayMarks()
+    {
+        Console.WriteLine("Marks 1: " + m1);
+        Console.WriteLine("Marks 2: " + m2);
+        Console.WriteLine("Marks 3: " + m3);
+    }
+
+    public int GetM1() => m1;
+    public int GetM2() => m2;
+    public int GetM3() => m3;
+}
+
+class Result : Marks
+{
+    private int total;
+    private double percentage;
+
+    public Result(int id, string name, string className, int m1, int m2, int m3)
+        : base(id, name, className, m1, m2, m3)
+    {
+        CalculateMarks();
+    }
+
+    public void CalculateMarks()
+    {
+        total = GetM1() + GetM2() + GetM3();
+        percentage = total / 3.0;
+    }
+
+    public void DisplayResult()
+    {
+        DisplayStudentInfo();
+        DisplayMarks();
+        Console.WriteLine("Total Marks: " + total);
+        Console.WriteLine("Percentage: " + percentage);
+    }
+
+    public int GetTotal() => total;
+    public double GetPercentage() => percentage;
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Result result = new Result(1, "John Doe", "10th Grade", 85, 90, 95);
+        result.DisplayResult();
+    }
+}
+
+
+
+2)
+using System;
+
+class Area 
+{
+public double r,A;
+	public Area(double r)
+	{
+		this.r=r;
+	}
+   public void cal_area()
+    {
+    	A=3.14*r*r;
+    	Console.WriteLine("Radius={0}\nArae={0}",r,A);
+    }
+}
+class Volume : Area
+{
+	public double h,v;
+public Volume(double r,double h):	base(r)
+	{
+		this.h=h;	
+	}
+public void cal_vol()
+	{
+		base.cal_area();
+		v=A*h;
+		Console.WriteLine("H={0}\nVolume={0}",h,v);
+	}
+}
+class volume1 : Volume
+{
+public double l,v1;
+public volume1(double r,double h,double l):base(r,h)
+{
+this.l=l;
+} 
+public void cal_vol1()
+{
+base.cal_vol();
+v1=v*l;
+Console.WriteLine("Volume1="+v1);
+}}
+public class Single
+{
+	public static void Main(string[] args) 
+	{
+	double r,h,l;
+	Console.WriteLine("Enter r & h &l");
+	r=Convert.ToDouble(Console.ReadLine());
+	h=Convert.ToDouble(Console.ReadLine());
+	l=Convert.ToDouble(Console.ReadLine());
+	volume1 v1= new volume1(r, h,l);
+				v1.cal_vol1();
+	}
+}
+
