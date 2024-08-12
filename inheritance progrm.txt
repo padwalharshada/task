@@ -1,0 +1,845 @@
+inheritance
+1)
+using System;
+
+interface Bank
+{
+    float rateOfInterest();
+}
+
+class SBI : Bank
+{
+    public float rateOfInterest()
+    {
+        return 9.15f;
+    }
+}
+
+class PNB : Bank
+{
+    public float rateOfInterest()
+    {
+        return 9.7f;
+    }
+}
+
+class TestInterface2
+{
+    public static void Main(string[] args)
+    {
+        Bank b = new SBI();
+        Console.WriteLine("ROI: {0} ", b.rateOfInterest());
+
+        Bank b1 = new PNB();
+        Console.WriteLine("ROI: {0} ", b1.rateOfInterest());
+    }
+}
+
+
+2)1)	Define an interface “IntOperations” with methods to check whether an integer is positive_negative, even_odd, prime and operations like factorial and sum of digits. Define a class MyNumber having one private int data member. Write a default constructor to initialize it to 0 and another constructor to initialize it to a value (Use this). Implement the above interface. Create an object in Main.
+
+
+using System;
+
+interface IntOperations
+{
+    bool IsPositiveNegative();
+    bool IsEvenOdd();
+    bool IsPrime();
+    int Factorial();
+    int SumOfDigits();
+}
+
+class MyNumber : IntOperations
+{
+    private int number;
+
+    public MyNumber()
+    {
+        this.number = 0;
+    }
+
+    public MyNumber(int number)
+    {
+        this.number = number;
+    }
+
+    public bool IsPositiveNegative()
+    {
+        return number >= 0;
+    }
+
+    public bool IsEvenOdd()
+    {
+        return number % 2 == 0;
+    }
+
+    public bool IsPrime()
+    {
+        if (number <= 1) return false;
+        for (int i = 2; i <= Math.Sqrt(number); i++)
+        {
+            if (number % i == 0) return false;
+        }
+        return true;
+    }
+
+    public int Factorial()
+    {
+        if (number < 0) throw new ArgumentException("Factorial is not defined for negative numbers.");
+        int result = 1;
+        for (int i = 1; i <= number; i++)
+        {
+            result *= i;
+        }
+        return result;
+    }
+
+    public int SumOfDigits()
+    {
+        int sum = 0;
+        int temp = Math.Abs(number);
+        while (temp > 0)
+        {
+            sum += temp % 10;
+            temp /= 10;
+        }
+        return sum;
+    }
+}
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        MyNumber myNum = new MyNumber(123);
+
+        Console.WriteLine("Number: {0}", myNum);
+        Console.WriteLine("Is Positive: {0}", myNum.IsPositiveNegative());
+        Console.WriteLine("Is Even: {0}", myNum.IsEvenOdd());
+        Console.WriteLine("Is Prime: {0}", myNum.IsPrime());
+        Console.WriteLine("Factorial: {0}", myNum.Factorial());
+        Console.WriteLine("Sum of Digits: {0}", myNum.SumOfDigits());
+    }
+}
+
+
+3)	Define an interface “StackOperations” which declares methods for a static stack. Define a class “MyStack” which contains an array and top as data members and IMPLEMENTS the above interface. Initialize the stack using a constructor. Write a menu driven program to perform operations on a stack object
+
+using System;
+
+interface StackOperations
+{
+    void Push(int item);
+    int Pop();
+    int Peek();
+    bool IsEmpty();
+    bool IsFull();
+}
+
+class MyStack : StackOperations
+{
+    private int[] stackArray;
+    private int top;
+    private int maxSize;
+
+    public MyStack(int size)
+    {
+        maxSize = size;
+        stackArray = new int[maxSize];
+        top = -1;
+    }
+
+    public void Push(int item)
+    {
+        if (IsFull())
+        {
+            Console.WriteLine("Stack is full. Cannot push item.");
+            return;
+        }
+        stackArray[++top] = item;
+    }
+
+    public int Pop()
+    {
+        if (IsEmpty())
+        {
+            Console.WriteLine("Stack is empty. Cannot pop item.");
+            return -1;
+        }
+        return stackArray[top--];
+    }
+
+    public int Peek()
+    {
+        if (IsEmpty())
+        {
+            Console.WriteLine("Stack is empty. Cannot peek item.");
+            return -1;
+        }
+        return stackArray[top];
+    }
+
+    public bool IsEmpty()
+    {
+        return top == -1;
+    }
+
+    public bool IsFull()
+    {
+        return top == maxSize - 1;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Enter the size of the stack:");
+        int size = int.Parse(Console.ReadLine());
+        MyStack stack = new MyStack(size);
+
+        while (true)
+        {
+            Console.WriteLine("\nStack Operations Menu:");
+            Console.WriteLine("1. Push");
+            Console.WriteLine("2. Pop");
+            Console.WriteLine("3. Peek");
+            Console.WriteLine("4. Check if stack is empty");
+            Console.WriteLine("5. Check if stack is full");
+            Console.WriteLine("6. Exit");
+            Console.Write("Enter your choice: ");
+            int choice = int.Parse(Console.ReadLine());
+
+            switch (choice)
+            {
+                case 1:
+                    Console.Write("Enter the item to push: ");
+                    int item = int.Parse(Console.ReadLine());
+                    stack.Push(item);
+                    break;
+                case 2:
+                    int poppedItem = stack.Pop();
+                    if (poppedItem != -1)
+                    {
+                        Console.WriteLine("Popped item: {0}", poppedItem);
+                    }
+                    break;
+                case 3:
+                    int peekedItem = stack.Peek();
+                    if (peekedItem != -1)
+                    {
+                        Console.WriteLine("Top item: {0}", peekedItem);
+                    }
+                    break;
+                case 4:
+                    Console.WriteLine("Is stack empty: {0}", stack.IsEmpty());
+                    break;
+                case 5:
+                    Console.WriteLine("Is stack full: {0}", stack.IsFull());
+                    break;
+                case 6:
+                    return;
+                default:
+                    Console.WriteLine("Invalid choice. Please try again.");
+                    break;
+            }
+        }
+    }
+}
+
+
+4)Define an Interface Shape with abstract method area(). Write a C# program to calculate an area of Circle and Sphere
+interface shape
+using System;
+
+// Define the interface Shape with an abstract method area()
+public interface Shape
+{
+    double Area();
+}
+
+// Implement the Circle class
+public class Circle : Shape
+{
+    private double radius;
+
+    // Constructor
+    public Circle(double radius)
+    {
+        this.radius = radius;
+    }
+
+    // Implement the Area method
+    public double Area()
+    {
+        return Math.PI * radius * radius;
+    }
+}
+
+// Implement the Sphere class
+public class Sphere : Shape
+{
+    private double radius;
+
+    // Constructor
+    public Sphere(double radius)
+    {
+        this.radius = radius;
+    }
+
+    // Implement the Area method (Surface area of a sphere)
+    public double Area()
+    {
+        return 4 * Math.PI * radius * radius;
+    }
+}
+
+// Main class to test the implementation
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        // Create a Circle with radius 5
+        Shape circle = new Circle(5);
+        Console.WriteLine("Area of Circle: " + circle.Area());
+
+        // Create a Sphere with radius 5
+        Shape sphere = new Sphere(5);
+        Console.WriteLine("Area of Sphere: " + sphere.Area());
+    }
+}
+
+5)Define an interface “Operation” which has methods area(),volume().Define a constant PI having a value 3.142.Create a class cylinder which implements this interface (members – radius, height) Create n object and calculate the area and volume.
+// Define the interface Operation with methods area() and volume()
+interface Operation {
+    double PI = 3.142; // Define the constant PI
+
+    double area();
+    double volume();
+}
+
+// Implement the Cylinder class
+class Cylinder implements Operation {
+    private double radius;
+    private double height;
+
+    // Constructor
+    public Cylinder(double radius, double height) {
+        this.radius = radius;
+        this.height = height;
+    }
+
+    // Implement the area method (Surface area of a cylinder)
+    @Override
+    public double area() {
+        return 2 * PI * radius * (radius + height);
+    }
+
+    // Implement the volume method (Volume of a cylinder)
+    @Override
+    public double volume() {
+        return PI * radius * radius * height;
+    }
+}
+
+// Main class to test the implementation
+public class Main {
+    public static void main(String[] args) {
+        // Define the number of cylinders
+        int n = 3; // Change this to the desired number of Cylinder objects
+
+        // Create an array of Cylinder objects
+        Cylinder[] cylinders = new Cylinder[n];
+
+        // Initialize the Cylinder objects with sample data
+        for (int i = 0; i < n; i++) {
+            double radius = i + 1; // Example radius
+            double height = (i + 1) * 2; // Example height
+            cylinders[i] = new Cylinder(radius, height);
+        }
+
+        // Calculate and print the area and volume for each Cylinder
+        for (int i = 0; i < n; i++) {
+            System.out.println("Cylinder " + (i + 1) + ":");
+            System.out.println("Radius: " + (i + 1));
+            System.out.println("Height: " + ((i + 1) * 2));
+            System.out.println("Surface Area: " + cylinders[i].area());
+            System.out.println("Volume: " + cylinders[i].volume());
+            System.out.println();
+        }
+    }
+}
+
+
+Write a program to using marker interface create a class product(product_id, product_name, product_cost, product_quantity) define a default and parameterized constructor. Create objects of class product and display the contents of each object and Also display the object count
+
+// Define the marker interface ProductMarker
+interface ProductMarker {}
+
+// Define the Product class that implements the ProductMarker interface
+class Product implements ProductMarker {
+    private static int objectCount = 0; // Static variable to keep track of object count
+
+    private int productId;
+    private String productName;
+    private double productCost;
+    private int productQuantity;
+
+    // Default constructor
+    public Product() {
+        this.productId = 0;
+        this.productName = "Unknown";
+        this.productCost = 0.0;
+        this.productQuantity = 0;
+        objectCount++;
+    }
+
+    // Parameterized constructor
+    public Product(int productId, String productName, double productCost, int productQuantity) {
+        this.productId = productId;
+        this.productName = productName;
+        this.productCost = productCost;
+        this.productQuantity = productQuantity;
+        objectCount++;
+    }
+
+    // Getter methods
+    public int getProductId() {
+        return productId;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public double getProductCost() {
+        return productCost;
+    }
+
+    public int getProductQuantity() {
+        return productQuantity;
+    }
+
+    // Method to get the object count
+    public static int getObjectCount() {
+        return objectCount;
+    }
+
+    // Method to display the product details
+    public void displayProductDetails() {
+        System.out.println("Product ID: " + productId);
+        System.out.println("Product Name: " + productName);
+        System.out.println("Product Cost: " + productCost);
+        System.out.println("Product Quantity: " + productQuantity);
+        System.out.println();
+    }
+}
+
+// Main class to test the implementation
+public class Main {
+    public static void main(String[] args) {
+        // Create objects of the Product class
+        Product product1 = new Product();
+        Product product2 = new Product(101, "Laptop", 750.50, 5);
+        Product product3 = new Product(102, "Smartphone", 250.75, 10);
+
+        // Display the contents of each object
+        System.out.println("Product 1 Details:");
+        product1.display
+
+Create an interface “CreditCardInterface” with methods to viewCreditAmount, viewPin, changePin, useCard and payBalance. Create a class Customer (name, card number, pin, creditAmount – initialized to 0). Implement methods viewCreditAmount, viewPin, changePin and payBalance of the interface. From Customer, create classes RegularCardHolder (maxCreditLimit) and GoldCardHolder (String specialPrivileges) and define the reMaining methods of the interface. Create n objects of the RegularCardHolder and GoldCardHolder classes and write a menu driven program to perform the following actions 1. Use Card 2. Pay Balance 3. Change Pin
+
+using System;
+
+// Define the CreditCardInterface
+interface CreditCardInterface
+{
+    double ViewCreditAmount();
+    string ViewPin();
+    void ChangePin(string newPin);
+    void UseCard(double amount);
+    void PayBalance(double amount);
+}
+
+// Define the Customer class
+class Customer : CreditCardInterface
+{
+    protected string Name;
+    protected string CardNumber;
+    protected string Pin;
+    protected double CreditAmount;
+
+    // Constructor
+    public Customer(string name, string cardNumber, string pin)
+    {
+        Name = name;
+        CardNumber = cardNumber;
+        Pin = pin;
+        CreditAmount = 0;
+    }
+
+    // Implement ViewCreditAmount
+    public double ViewCreditAmount()
+    {
+        return CreditAmount;
+    }
+
+    // Implement ViewPin
+    public string ViewPin()
+    {
+        return Pin;
+    }
+
+    // Implement ChangePin
+    public void ChangePin(string newPin)
+    {
+        Pin = newPin;
+        Console.WriteLine("PIN changed successfully.");
+    }
+
+    // Implement PayBalance
+    public void PayBalance(double amount)
+    {
+        if (amount <= CreditAmount)
+        {
+            CreditAmount -= amount;
+            Console.WriteLine("Paid " + amount + ". New balance: " + CreditAmount);
+        }
+        else
+        {
+            Console.WriteLine("Insufficient balance.");
+        }
+    }
+
+    // Implement UseCard (to be overridden in subclasses)
+    public virtual void UseCard(double amount)
+    {
+        Console.WriteLine("Base class UseCard method called. This should be overridden.");
+    }
+}
+
+// Define the RegularCardHolder class
+class RegularCardHolder : Customer
+{
+    private double MaxCreditLimit;
+
+    // Constructor
+    public RegularCardHolder(string name, string cardNumber, string pin, double maxCreditLimit)
+        : base(name, cardNumber, pin)
+    {
+        MaxCreditLimit = maxCreditLimit;
+    }
+
+    public override void UseCard(double amount)
+    {
+        if (amount <= MaxCreditLimit - CreditAmount)
+        {
+            CreditAmount += amount;
+            Console.WriteLine("Used " + amount + ". New balance: " + CreditAmount);
+        }
+        else
+        {
+            Console.WriteLine("Credit limit exceeded.");
+        }
+    }
+}
+
+// Define the GoldCardHolder class
+class GoldCardHolder : Customer
+{
+    private string SpecialPrivileges;
+
+    // Constructor
+    public GoldCardHolder(string name, string cardNumber, string pin, string specialPrivileges)
+        : base(name, cardNumber, pin)
+    {
+        SpecialPrivileges = specialPrivileges;
+    }
+
+    public override void UseCard(double amount)
+    {
+        if (amount <= CreditAmount)
+        {
+            CreditAmount -= amount;
+            Console.WriteLine("Used " + amount + ". New balance: " + CreditAmount);
+        }
+        else
+        {
+            Console.WriteLine("Insufficient balance.");
+        }
+    }
+
+    // Special method to display privileges
+    public void DisplayPrivileges()
+    {
+        Console.WriteLine("Special Privileges: " + SpecialPrivileges);
+    }
+}
+
+// Main class with menu-driven program
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Create objects of RegularCardHolder and GoldCardHolder
+        RegularCardHolder regularCardHolder = new RegularCardHolder("John Doe", "123456789", "1234", 5000);
+        GoldCardHolder goldCardHolder = new GoldCardHolder("Jane Smith", "987654321", "5678", "Travel Discounts");
+
+        // Menu-driven program
+        while (true)
+        {
+            Console.WriteLine("Menu:");
+            Console.WriteLine("1. Use Card");
+            Console.WriteLine("2. Pay Balance");
+            Console.WriteLine("3. Change Pin");
+            Console.WriteLine("4. Exit");
+            Console.Write("Choose an option: ");
+            int choice = int.Parse(Console.ReadLine());
+
+            switch (choice)
+            {
+                case 1:
+                    // Use Card
+                    Console.Write("Enter card type (1 for Regular, 2 for Gold): ");
+                    int cardType = int.Parse(Console.ReadLine());
+                    Console.Write("Enter amount to use: ");
+                    double amountToUse = double.Parse(Console.ReadLine());
+                    
+                    if (cardType == 1)
+                    {
+                        regularCardHolder.UseCard(amountToUse);
+                    }
+                    else if (cardType == 2)
+                    {
+                        goldCardHolder.UseCard(amountToUse);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid card type.");
+                    }
+                    break;
+
+                case 2:
+                    // Pay Balance
+                    Console.Write("Enter card type (1 for Regular, 2 for Gold): ");
+                    cardType = int.Parse(Console.ReadLine());
+                    Console.Write("Enter amount to pay: ");
+                    double amountToPay = double.Parse(Console.ReadLine());
+                    
+                    if (cardType == 1)
+                    {
+                        regularCardHolder.PayBalance(amountToPay);
+                    }
+                    else if (cardType == 2)
+                    {
+                        goldCardHolder.PayBalance(amountToPay);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid card type.");
+                    }
+                    break;
+
+                case 3:
+                    // Change Pin
+                    Console.Write("Enter card type (1 for Regular, 2 for Gold): ");
+                    cardType = int.Parse(Console.ReadLine());
+                    Console.Write("Enter new pin: ");
+                    string newPin = Console.ReadLine();
+                    
+                    if (cardType == 1)
+                    {
+                        regularCardHolder.ChangePin(newPin);
+                    }
+                    else if (cardType == 2)
+                    {
+                        goldCardHolder.ChangePin(newPin);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid card type.");
+                    }
+                    break;
+
+                case 4:
+                    // Exit
+                    Console.WriteLine("Exiting...");
+                    return;
+
+                default:
+                    Console.WriteLine("Invalid option. Please try again.");
+                    break;
+            }
+        }
+    }
+}
+
+
+Define an interface “QueueOperations” which declares methods for a static queue. Define a class “MyQueue” which contains an array and front and rear as data members and implemens the above interface. Initialize the queue using a constructor. Write a menu driven program to perform operations on a queue object.
+
+
+using System;
+
+// Define the QueueOperations interface
+interface QueueOperations
+{
+    void Enqueue(int item);
+    int Dequeue();
+    int Peek();
+    bool IsEmpty();
+    bool IsFull();
+}
+
+// Define the MyQueue class that implements QueueOperations
+class MyQueue : QueueOperations
+{
+    private int[] queue;
+    private int front;
+    private int rear;
+    private int size;
+    private int capacity;
+
+    // Constructor to initialize the queue
+    public MyQueue(int capacity)
+    {
+        this.capacity = capacity;
+        queue = new int[capacity];
+        front = 0;
+        rear = -1;
+        size = 0;
+    }
+
+    // Implement Enqueue method
+    public void Enqueue(int item)
+    {
+        if (IsFull())
+        {
+            Console.WriteLine("Queue is full. Cannot enqueue " + item);
+        }
+        else
+        {
+            rear = (rear + 1) % capacity;
+            queue[rear] = item;
+            size++;
+            Console.WriteLine(item + " enqueued to queue.");
+        }
+    }
+
+    // Implement Dequeue method
+    public int Dequeue()
+    {
+        if (IsEmpty())
+        {
+            Console.WriteLine("Queue is empty. Cannot dequeue.");
+            return -1; // Return -1 to indicate the queue is empty
+        }
+        else
+        {
+            int item = queue[front];
+            front = (front + 1) % capacity;
+            size--;
+            return item;
+        }
+    }
+
+    // Implement Peek method
+    public int Peek()
+    {
+        if (IsEmpty())
+        {
+            Console.WriteLine("Queue is empty.");
+            return -1; // Return -1 to indicate the queue is empty
+        }
+        else
+        {
+            return queue[front];
+        }
+    }
+
+    // Implement IsEmpty method
+    public bool IsEmpty()
+    {
+        return size == 0;
+    }
+
+    // Implement IsFull method
+    public bool IsFull()
+    {
+        return size == capacity;
+    }
+}
+
+// Main class with menu-driven program
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Enter the capacity of the queue: ");
+        int capacity = int.Parse(Console.ReadLine());
+        MyQueue queue = new MyQueue(capacity);
+
+        while (true)
+        {
+            Console.WriteLine("\nMenu:");
+            Console.WriteLine("1. Enqueue");
+            Console.WriteLine("2. Dequeue");
+            Console.WriteLine("3. Peek");
+            Console.WriteLine("4. Check if Queue is Empty");
+            Console.WriteLine("5. Check if Queue is Full");
+            Console.WriteLine("6. Exit");
+            Console.Write("Choose an option: ");
+            int choice = int.Parse(Console.ReadLine());
+
+            switch (choice)
+            {
+                case 1:
+                    // Enqueue
+                    Console.Write("Enter the number to enqueue: ");
+                    int enqueueItem = int.Parse(Console.ReadLine());
+                    queue.Enqueue(enqueueItem);
+                    break;
+
+                case 2:
+                    // Dequeue
+                    int dequeuedItem = queue.Dequeue();
+                    if (dequeuedItem != -1)
+                    {
+                        Console.WriteLine(dequeuedItem + " dequeued from queue.");
+                    }
+                    break;
+
+                case 3:
+                    // Peek
+                    int peekedItem = queue.Peek();
+                    if (peekedItem != -1)
+                    {
+                        Console.WriteLine("Front item is " + peekedItem);
+                    }
+                    break;
+
+                case 4:
+                    // Check if Queue is Empty
+                    Console.WriteLine(queue.IsEmpty() ? "Queue is empty." : "Queue is not empty.");
+                    break;
+
+                case 5:
+                    // Check if Queue is Full
+                    Console.WriteLine(queue.IsFull() ? "Queue is full." : "Queue is not full.");
+                    break;
+
+                case 6:
+                    // Exit
+                    Console.WriteLine("Exiting...");
+                    return;
+
+                default:
+                    Console.WriteLine("Invalid option. Please try again.");
+                    break;
+            }
+        }
+    }
+}
+
+
+
