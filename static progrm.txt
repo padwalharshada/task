@@ -1,0 +1,773 @@
+1)Sort student namewise
+
+using System;
+using System.Collections.Generic;
+
+class Student
+{
+    public int id;
+    public string name;
+    public double grade;
+
+    public Student(int id, string name, double grade)
+    {
+        this.id = id;
+        this.name = name;
+        this.grade = grade;
+    }
+
+    public void Display()
+    {
+        Console.WriteLine($"{id}\t{name}\t{grade}");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        List<Student> students = new List<Student>();
+
+        Console.WriteLine("Enter the number of students:");
+        int n = Convert.ToInt32(Console.ReadLine());
+
+        for (int i = 0; i < n; i++)
+        {
+            Console.WriteLine($"Enter details for student {i + 1}:");
+            Console.Write("ID: ");
+            int id = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Name: ");
+            string name = Console.ReadLine();
+            Console.Write("Grade: ");
+            double grade = Convert.ToDouble(Console.ReadLine());
+
+            students.Add(new Student(id, name, grade));
+        }
+
+        students.Sort((s1, s2) => s1.name.CompareTo(s2.name));
+
+        Console.WriteLine("\nSorted students by name:");
+        foreach (var student in students)
+        {
+            student.Display();
+        }
+    }
+}
+
+
+2)Sort student id wise
+
+using System;
+using System.Collections.Generic;
+
+class Student
+{
+    public int id;
+    public string name;
+    public double grade;
+
+    public Student(int id, string name, double grade)
+    {
+        this.id = id;
+        this.name = name;
+        this.grade = grade;
+    }
+
+    public void Display()
+    {
+        Console.WriteLine($"{id}\t{name}\t{grade}");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        List<Student> students = new List<Student>();
+
+        Console.WriteLine("Enter the number of students:");
+        int n = Convert.ToInt32(Console.ReadLine());
+
+        for (int i = 0; i < n; i++)
+        {
+            Console.WriteLine($"Enter details for student {i + 1}:");
+            Console.Write("ID: ");
+            int id = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Name: ");
+            string name = Console.ReadLine();
+            Console.Write("Grade: ");
+            double grade = Convert.ToDouble(Console.ReadLine());
+
+            students.Add(new Student(id, name, grade));
+        }
+
+        students.Sort((s1, s2) => s1.id.CompareTo(s2.id));
+
+        Console.WriteLine("\nSorted students by ID:");
+        foreach (var student in students)
+        {
+            student.Display();
+        }
+    }
+}
+
+3)Sort student id wise in descending order
+
+using System;
+using System.Collections.Generic;
+
+class Student
+{
+    public int id;
+    public string name;
+    public double grade;
+
+    public Student(int id, string name, double grade)
+    {
+        this.id = id;
+        this.name = name;
+        this.grade = grade;
+    }
+
+    public void Display()
+    {
+        Console.WriteLine($"{id}\t{name}\t{grade}");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        List<Student> students = new List<Student>();
+
+        Console.WriteLine("Enter the number of students:");
+        int n = Convert.ToInt32(Console.ReadLine());
+
+        for (int i = 0; i < n; i++)
+        {
+            Console.WriteLine($"Enter details for student {i + 1}:");
+            Console.Write("ID: ");
+            int id = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Name: ");
+            string name = Console.ReadLine();
+            Console.Write("Grade: ");
+            double grade = Convert.ToDouble(Console.ReadLine());
+
+            students.Add(new Student(id, name, grade));
+        }
+
+        students.Sort((s1, s2) => s2.id.CompareTo(s1.id)); // Changed to sort in descending order
+
+        Console.WriteLine("\nSorted students by ID (descending):");
+        foreach (var student in students)
+        {
+            student.Display();
+        }
+    }
+}
+
+4)Write a java program to accept the details of n Cricket Players from user 
+(Playercode, name, runs, innings- played and number of times not out). The program should contain following menus:
+ -Display average runs of a single player. 
+-Display average runs of all players. (Use array of objects, 
+Method overloading and static  keyword)	
+
+
+
+using System;
+
+class CricketPlayer
+{
+    public int playerCode;
+    public string name;
+    public int runs;
+    public int innings;
+    public int notOut;
+
+    public CricketPlayer(int playerCode, string name, int runs, int innings, int notOut)
+    {
+        this.playerCode = playerCode;
+        this.name = name;
+        this.runs = runs;
+        this.innings = innings;
+        this.notOut = notOut;
+    }
+
+    public double CalculateAverage()
+    {
+        return (double)runs / (innings - notOut);
+    }
+
+    public void DisplayDetails()
+    {
+        Console.WriteLine($"Player Code: {playerCode}, Name: {name}, Runs: {runs}, Innings: {innings}, Not Out: {notOut}, Average: {CalculateAverage():F2}");
+    }
+}
+
+class CricketPlayerManager
+{
+    private static CricketPlayer[] players;
+
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Enter the number of players:");
+        int n = Convert.ToInt32(Console.ReadLine());
+
+        players = new CricketPlayer[n];
+
+        for (int i = 0; i < n; i++)
+        {
+            Console.WriteLine($"Enter details for player {i + 1}:");
+            Console.Write("Player Code: ");
+            int playerCode = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Name: ");
+            string name = Console.ReadLine();
+            Console.Write("Runs: ");
+            int runs = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Innings Played: ");
+            int innings = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Times Not Out: ");
+            int notOut = Convert.ToInt32(Console.ReadLine());
+
+            players[i] = new CricketPlayer(playerCode, name, runs, innings, notOut);
+        }
+
+        while (true)
+        {
+            Console.WriteLine("\nMenu:");
+            Console.WriteLine("1. Display average runs of a single player.");
+            Console.WriteLine("2. Display average runs of all players.");
+            Console.WriteLine("3. Exit.");
+            Console.Write("Enter your choice: ");
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+            switch (choice)
+            {
+                case 1:
+                    Console.Write("Enter player code: ");
+                    int playerCode = Convert.ToInt32(Console.ReadLine());
+                    DisplayPlayerAverage(playerCode);
+                    break;
+                case 2:
+                    DisplayAllPlayersAverage();
+                    break;
+                case 3:
+                    return;
+                default:
+                    Console.WriteLine("Invalid choice. Please enter a valid option.");
+                    break;
+            }
+        }
+    }
+
+    public static void DisplayPlayerAverage(int playerCode)
+    {
+        foreach (var player in players)
+        {
+            if (player.playerCode == playerCode)
+            {
+                Console.WriteLine($"Average runs for player {playerCode}: {player.CalculateAverage():F2}");
+                return;
+            }
+        }
+        Console.WriteLine("Player not found.");
+    }
+
+    public static void DisplayAllPlayersAverage()
+    {
+        foreach (var player in players)
+        {
+            player.DisplayDetails();
+        }
+    }
+}
+
+
+5))Write a java program to accept the details of n Cricket Players from user 
+(Playercode, name, runs, innings-played and number of times not out ,average).
+(Use array of objects, Method overloading and static  keyword) 
+
+The program should contain following menus:
+-Display average runs of all players. 	
+-Sort cricket player average wise. 
+-Sort cricket player name wise. 
+-Sort cricket player run wise. 
+
+using System;
+using System.Linq;
+
+class CricketPlayer
+{
+    public int PlayerCode;
+    public string Name;
+    public int Runs;
+    public int Innings;
+    public int NotOut;
+    public double Average;
+
+    public CricketPlayer(int playerCode, string name, int runs, int innings, int notOut)
+    {
+        PlayerCode = playerCode;
+        Name = name;
+        Runs = runs;
+        Innings = innings;
+        NotOut = notOut;
+        Average = CalculateAverage();
+    }
+
+    public double CalculateAverage()
+    {
+        return (Innings - NotOut > 0) ? (double)Runs / (Innings - NotOut) : 0;
+    }
+
+    public void DisplayDetails()
+    {
+        Console.WriteLine($"Player Code: {PlayerCode}, Name: {Name}, Runs: {Runs}, Innings: {Innings}, Not Out: {NotOut}, Average: {Average:F2}");
+    }
+}
+
+class CricketPlayerManager
+{
+    private static CricketPlayer[] players;
+
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Enter the number of players:");
+        int n = Convert.ToInt32(Console.ReadLine());
+
+        players = new CricketPlayer[n];
+
+        for (int i = 0; i < n; i++)
+        {
+            Console.WriteLine($"Enter details for player {i + 1}:");
+            Console.Write("Player Code: ");
+            int playerCode = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Name: ");
+            string name = Console.ReadLine();
+            Console.Write("Runs: ");
+            int runs = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Innings Played: ");
+            int innings = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Times Not Out: ");
+            int notOut = Convert.ToInt32(Console.ReadLine());
+
+            players[i] = new CricketPlayer(playerCode, name, runs, innings, notOut);
+        }
+
+        while (true)
+        {
+            Console.WriteLine("\nMenu:");
+            Console.WriteLine("1. Display average runs of all players.");
+            Console.WriteLine("2. Sort cricket players by average runs.");
+            Console.WriteLine("3. Sort cricket players by name.");
+            Console.WriteLine("4. Sort cricket players by runs.");
+            Console.WriteLine("5. Exit.");
+            Console.Write("Enter your choice: ");
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+            switch (choice)
+            {
+                case 1:
+                    DisplayAllPlayersAverage();
+                    break;
+                case 2:
+                    SortByAverage();
+                    DisplayAllPlayers();
+                    break;
+                case 3:
+                    SortByName();
+                    DisplayAllPlayers();
+                    break;
+                case 4:
+                    SortByRuns();
+                    DisplayAllPlayers();
+                    break;
+                case 5:
+                    return;
+                default:
+                    Console.WriteLine("Invalid choice. Please enter a valid option.");
+                    break;
+            }
+        }
+    }
+
+    public static void DisplayAllPlayersAverage()
+    {
+        foreach (var player in players)
+        {
+            player.DisplayDetails();
+        }
+    }
+
+    public static void SortByAverage()
+    {
+        players = players.OrderByDescending(p => p.Average).ToArray();
+    }
+
+    public static void SortByName()
+    {
+        players = players.OrderBy(p => p.Name).ToArray();
+    }
+
+    public static void SortByRuns()
+    {
+        players = players.OrderByDescending(p => p.Runs).ToArray();
+    }
+
+    public static void DisplayAllPlayers()
+    {
+        foreach (var player in players)
+        {
+            player.DisplayDetails();
+        }
+    }
+}
+
+6)using System;
+class Employee
+{
+    int eid;
+    string name;
+    double salary;
+    static int cnt;
+    public Employee()//defualt constructor
+    {
+        cnt++;
+        eid = 101;
+        name = "Sam";
+        salary = 9876.90;
+    }
+    public Employee(int eid, string name, double salary)//parameterized constuctor
+    {
+        cnt++;
+        this.eid = eid;
+        this.name = name;
+        this.salary = salary;
+    }
+    public void display()
+    {
+        Console.WriteLine("{0}\t{1}\t{2}", eid, name, salary);
+    }
+    public static void count()
+    {
+        Console.WriteLine("No of object={0}", cnt);
+    }
+}
+public class static_demo
+{
+
+    public static void Main(string[] args)
+    {
+        int eid, i;
+        string name;
+        double salary;
+
+        Employee e1 = new Employee();
+        e1.display();
+        Employee.count();
+        Console.WriteLine("Enter id ,name & salary");
+        eid = Convert.ToInt32(Console.ReadLine());
+        name = Console.ReadLine();
+        salary = Convert.ToDouble(Console.ReadLine());
+        Employee e2 = new Employee(eid, name, salary);
+        e2.display();
+        Employee.count();
+        Console.WriteLine("Enter id ,name & salary");
+        eid = Convert.ToInt32(Console.ReadLine());
+        name = Console.ReadLine();
+        salary = Convert.ToDouble(Console.ReadLine());
+        Employee e3 = new Employee(eid, name, salary);
+        e3.display();
+        Employee.count();
+
+    }
+}
+
+7)
+using System;
+
+public class Singleton
+{
+    private static Singleton instance = null;
+    private static readonly object padlock = new object();
+
+    // Private constructor to prevent instance creation
+    private Singleton()
+    {
+    }
+
+    // Static method to get the instance of the Singleton class
+    public static Singleton Instance
+    {
+        get
+        {
+            lock (padlock)
+            {
+                if (instance == null)
+                {
+                    instance = new Singleton();
+                }
+                return instance;
+            }
+        }
+    }
+
+    public void ShowMessage(string message)
+    {
+        Console.WriteLine(message);
+    }
+}
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        Singleton singleton = Singleton.Instance;
+        singleton.ShowMessage("Singleton instance has been accessed!");
+    }
+}
+
+
+8)
+using System;
+
+public class Player
+{
+    // Static field
+    public static int PlayerCount = 0;
+
+    // Instance field
+    public string Name;
+
+    // Static constructor
+    static Player()
+    {
+        Console.WriteLine("Static constructor called.");
+    }
+
+    // Instance constructor
+    public Player(string name)
+    {
+        Name = name;
+        PlayerCount++;
+    }
+
+    // Static method
+    public static void DisplayPlayerCount()
+    {
+        Console.WriteLine($"Total players: {PlayerCount}");
+    }
+
+    // Instance method
+    public void DisplayPlayerName()
+    {
+        Console.WriteLine($"Player name: {Name}");
+    }
+}
+
+// Static class
+public static class Game
+{
+    public static void StartGame()
+    {
+        Console.WriteLine("Game started!");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Access static method and field without creating an instance
+        Player.DisplayPlayerCount();
+
+        // Creating instances of Player
+        Player player1 = new Player("Alice");
+        Player player2 = new Player("Bob");
+
+        // Access instance method
+        player1.DisplayPlayerName();
+        player2.DisplayPlayerName();
+
+        // Access static method and field through the type name
+        Player.DisplayPlayerCount();
+
+        // Access static class method
+        Game.StartGame();
+    }
+}
+
+9)
+using System;
+using System.Collections.Generic;
+
+public class Customer
+{
+    // Static field to keep track of the total number of customers
+    private static int totalCustomers = 0;
+
+    // Static list to store customer names
+    private static List<string> customerNames = new List<string>();
+
+    // Instance field for customer name
+    public string Name { get; private set; }
+
+    // Constructor
+    public Customer(string name)
+    {
+        Name = name;
+        totalCustomers++;
+        customerNames.Add(name);
+    }
+
+    // Static method to get the total number of customers
+    public static int GetTotalCustomers()
+    {
+        return totalCustomers;
+    }
+
+    // Static method to display all customer names
+    public static void DisplayCustomerNames()
+    {
+        Console.WriteLine("Customer Names:");
+        foreach (string name in customerNames)
+        {
+            Console.WriteLine(name);
+        }
+    }
+
+    // Instance method to display customer details
+    public void DisplayCustomerDetails()
+    {
+        Console.WriteLine($"Customer Name: {Name}");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Adding customers
+        Customer customer1 = new Customer("Alice");
+        Customer customer2 = new Customer("Bob");
+        Customer customer3 = new Customer("Charlie");
+
+        // Displaying individual customer details
+        customer1.DisplayCustomerDetails();
+        customer2.DisplayCustomerDetails();
+        customer3.DisplayCustomerDetails();
+
+        // Displaying total number of customers using static method
+        Console.WriteLine($"Total Customers: {Customer.GetTotalCustomers()}");
+
+        // Displaying all customer names using static method
+        Customer.DisplayCustomerNames();
+    }
+}
+
+
+10)
+using System;
+class Employee 
+{	
+    	int eid;
+	string name;
+	double salary;
+	static int cnt;
+	public Employee()//defualt constructor
+	{
+		cnt++;
+		eid=101;
+		name="Sam";
+		salary=9876.90;		
+	}
+	public Employee(int eid,string name,double salary)//parameterized constuctor
+	{
+		cnt++;
+		this.eid=eid;
+		this.name=name;
+		this.salary=salary;
+	}	
+	public void display()
+	{
+		Console.WriteLine("{0}\t{1}\t{2}",eid,name,salary);		
+	}	
+	public static void count()
+	{
+		Console.WriteLine("No of object={0}",cnt);	
+	}	
+}
+public class static_demo 
+{
+
+	public static void Main(string[] args) 
+	{
+		int eid,i;
+		string name;
+		double salary;
+		
+		Employee e1=new Employee();
+		e1.display();
+		Employee.count();
+		Console.WriteLine("Enter id ,name & salary");
+		eid=Convert.ToInt32(Console.ReadLine());
+		name=Console.ReadLine();
+		salary=Convert.ToDouble(Console.ReadLine());
+		Employee e2=new Employee(eid,name,salary);
+		e2.display();
+		Employee.count();
+		Console.WriteLine("Enter id ,name & salary");
+		eid=Convert.ToInt32(Console.ReadLine());
+		name=Console.ReadLine();
+		salary=Convert.ToDouble(Console.ReadLine());
+		Employee e3=new Employee(eid,name,salary);
+		e3.display();
+		Employee.count();
+		
+	}
+}
+
+
+
+interview question
+1)What is the static keyword in Java?
+
+The static keyword in Java is used for memory management mainly. It can be applied to variables, methods, blocks, and nested classes.
+2)What is a static variable in Java?
+
+A static variable is shared among all instances of a class. It is declared using the static keyword and is initialized only once, at the start of the program execution.
+3)What is a static method in Java?
+
+A static method belongs to the class rather than any instance of the class. It can be called without creating an instance of the class.
+4)Can we override static methods in Java?
+
+No, static methods cannot be overridden because they belong to the class, not instances. However, they can be hidden if a subclass defines a static method with the same signature.
+5)What is a static block in Java?
+
+A static block, also known as a static initializer, is used for static initializations of a class. This code inside the static block is executed only once, when the class is loaded.
+6)What is the difference between static and instance variables?
+
+Static variables are shared among all instances of a class, while instance variables are unique to each instance.
+C#
+7)What is the static keyword in C#?
+
+The static keyword in C# is used to declare static members, which belong to the type itself rather than to a specific object.
+8)What is a static variable in C#?
+
+A static variable is shared among all instances of a class. It is declared with the static keyword and is initialized once for the entire application.
+9)What is a static method in C#?
+
+A static method belongs to the class itself rather than to any object. It can be called on the class itself, without creating an instance.
+10)Can we override static methods in C#?
+
+No, static methods cannot be overridden because they are not part of the object instance, they are part of the class definition itself.
+11)What is a static constructor in C#?
+
+A static constructor is used to initialize static data or to perform a particular action that needs to be performed once only. It is called automatically before any static members are accessed and is called only once during the lifetime of the application domain.
+12)What is the difference between static and instance methods?
+
+Static methods belong to the class and can be called on the class itself. Instance methods belong to an instance of the class and can only be called on an instantiated object.
+
+
+
