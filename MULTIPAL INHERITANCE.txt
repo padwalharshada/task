@@ -1,0 +1,201 @@
+MULTIPAL INHERITANCE
+
+1)
+using System;
+
+// Define the interface
+interface ISalary
+{
+    void CalSal();
+}
+
+// Define the Employee class
+class Employee
+{
+    protected int eid;
+    protected string name;
+    protected double bs;
+
+    // Method to accept employee details
+    public void Accept()
+    {
+        Console.WriteLine("Enter EID, Name, and Basic Salary (BS):");
+        eid = Convert.ToInt32(Console.ReadLine());
+        name = Console.ReadLine();
+        bs = Convert.ToDouble(Console.ReadLine());
+    }
+
+    // Method to display employee details
+    public void Display()
+    {
+        Console.WriteLine("EID: {0}", eid);
+        Console.WriteLine("Name: {0}", name);
+        Console.WriteLine("BS: {0}", bs);
+    }
+}
+
+// Define the emp_sal class which inherits Employee and implements ISalary
+class EmpSal : Employee, ISalary
+{
+    private double hra, ta, da, gs;
+
+    // Implement the CalSal method from ISalary
+    public void CalSal()
+    {
+        hra = bs * 0.40;
+        da = bs * 0.40;
+        ta = bs * 0.40;
+        gs = (hra + ta + da + bs) - (bs * 0.05);
+
+        Console.WriteLine("HRA: {0}", hra);
+        Console.WriteLine("TA: {0}", ta);
+        Console.WriteLine("DA: {0}", da);
+        Console.WriteLine("Gross Salary (GS): {0}", gs);
+    }
+}
+
+// Main class to execute the program
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        EmpSal e1 = new EmpSal();
+        e1.Accept();
+        e1.Display();
+        e1.CalSal();
+    }
+}
+
+2)using System;
+
+// Define the AnimalEat interface
+interface AnimalEat
+{
+    void Eat();
+}
+
+// Define the AnimalTravel interface
+interface AnimalTravel
+{
+    void Travel();
+}
+
+// Define the Animal class implementing both interfaces
+class Animal : AnimalEat, AnimalTravel
+{
+    // Implement the Eat method from AnimalEat
+    public void Eat()
+    {
+        Console.WriteLine("Animal is eating");
+    }
+
+    // Implement the Travel method from AnimalTravel
+    public void Travel()
+    {
+        Console.WriteLine("Animal is travelling");
+    }
+}
+
+// Main class to execute the program
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        Animal a1 = new Animal();
+        a1.Eat();
+        a1.Travel();
+    }
+}
+
+
+
+
+3)using System;
+
+// Define the Car interface
+interface Car
+{
+    void DistanceTravelled();
+}
+
+// Define the Bus interface
+interface Bus
+{
+    void Speed();
+}
+
+// Define the Vehicle class implementing both Car and Bus interfaces
+public class Vehicle : Car, Bus
+{
+    private int distanceTravelled1;
+    private int averageSpeed;
+    private int speed1 = 60; // Speed in km/h
+    private int distance = 100; // Distance in km
+
+    // Implement the DistanceTravelled method from Car
+    public void DistanceTravelled()
+    {
+        distanceTravelled1 = speed1 * distance;
+        Console.WriteLine("Total Distance Travelled is: {0} km", distanceTravelled1);
+    }
+
+    // Implement the Speed method from Bus
+    public void Speed()
+    {
+        // Make sure distanceTravelled1 is computed before using it
+        int averageSpeed = distanceTravelled1 / distance; 
+        Console.WriteLine("Average Speed Maintained is: {0} km/h", averageSpeed);
+    }
+
+    // Main method to execute the program
+    public static void Main(string[] args)
+    {
+        Vehicle v1 = new Vehicle();
+        v1.DistanceTravelled();
+        v1.Speed();
+    }
+}
+
+
+
+
+4)using System;
+
+// Define the first interface PI1
+interface PI1
+{
+    void Show();
+}
+
+// Define the second interface PI2
+interface PI2
+{
+    void Show1();
+}
+
+// Define the TestClass that implements both interfaces
+class TestClass : PI1, PI2
+{
+    // Implement the Show method from PI1
+    public void Show()
+    {
+        Console.WriteLine("Called 1");
+    }
+
+    // Implement the Show1 method from PI2
+    public void Show1()
+    {
+        Console.WriteLine("Called 2");
+    }
+
+    // Main method to execute the program
+    public static void Main(string[] args)
+    {
+        TestClass d = new TestClass();
+        d.Show();   // Call Show method
+        d.Show1();  // Call Show1 method
+    }
+}
+
+
+

@@ -1,0 +1,370 @@
+1)create namespace series conatain class prime no,fibonacci,armstrong
+create n object of all classes in another file and access all classes
+
+
+using System;
+
+namespace Series
+{
+    public class Prime
+    {
+        public bool IsPrime(int number)
+        {
+            if (number <= 1) return false;
+            for (int i = 2; i < number; i++)
+            {
+                if (number % i == 0) return false;
+            }
+            return true;
+        }
+    }
+
+    public class Fibonacci
+    {
+        public int[] GenerateSeries(int length)
+        {
+            int[] series = new int[length];
+            if (length > 0) series[0] = 0;
+            if (length > 1) series[1] = 1;
+            for (int i = 2; i < length; i++)
+            {
+                series[i] = series[i - 1] + series[i - 2];
+            }
+            return series;
+        }
+    }
+
+    public class Armstrong
+    {
+        public bool IsArmstrong(int number)
+        {
+            int sum = 0, temp = number, digits = 0;
+            while (temp != 0)
+            {
+                digits++;
+                temp /= 10;
+            }
+            temp = number;
+            while (temp != 0)
+            {
+                int remainder = temp % 10;
+                sum += (int)Math.Pow(remainder, digits);
+                temp /= 10;
+            }
+            return sum == number;
+        }
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Create objects of each class
+        Series.Prime primeChecker = new Series.Prime();
+        Series.Fibonacci fibonacciGenerator = new Series.Fibonacci();
+        Series.Armstrong armstrongChecker = new Series.Armstrong();
+
+        // Test Prime class
+        int number = 7;
+        Console.WriteLine($"{number} is prime: {primeChecker.IsPrime(number)}");
+
+        // Test Fibonacci class
+        int length = 10;
+        int[] fibonacciSeries = fibonacciGenerator.GenerateSeries(length);
+        Console.WriteLine("Fibonacci series:");
+        foreach (var num in fibonacciSeries)
+        {
+            Console.Write(num + " ");
+        }
+        Console.WriteLine();
+
+        // Test Armstrong class
+        int armstrongNumber = 153;
+        Console.WriteLine($"{armstrongNumber} is an Armstrong number: {armstrongChecker.IsArmstrong(armstrongNumber)}");
+    }
+}
+
+
+2)Write a namespace for Games in c#, which have two classes Indoor and Outdoor(name,gname). Use a function display () to generate the list of players for the specific games. (Use Parameterized constructor and Array Of Objects)
+
+
+using System;
+
+namespace Games
+{
+    public class Indoor
+    {
+        private string name;
+        private string gname;
+
+        public Indoor(string name, string gname)
+        {
+            this.name = name;
+            this.gname = gname;
+        }
+
+        public void Display()
+        {
+            Console.WriteLine($"Indoor Game: {gname}, Player: {name}");
+        }
+    }
+
+    public class Outdoor
+    {
+        private string name;
+        private string gname;
+
+        public Outdoor(string name, string gname)
+        {
+            this.name = name;
+            this.gname = gname;
+        }
+
+        public void Display()
+        {
+            Console.WriteLine($"Outdoor Game: {gname}, Player: {name}");
+        }
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Create an array of Indoor game players
+        Games.Indoor[] indoorPlayers = new Games.Indoor[3];
+        indoorPlayers[0] = new Games.Indoor("Alice", "Chess");
+        indoorPlayers[1] = new Games.Indoor("Bob", "Table Tennis");
+        indoorPlayers[2] = new Games.Indoor("Charlie", "Badminton");
+
+        // Create an array of Outdoor game players
+        Games.Outdoor[] outdoorPlayers = new Games.Outdoor[3];
+        outdoorPlayers[0] = new Games.Outdoor("David", "Football");
+        outdoorPlayers[1] = new Games.Outdoor("Eve", "Cricket");
+        outdoorPlayers[2] = new Games.Outdoor("Frank", "Hockey");
+
+        // Display Indoor game players
+        Console.WriteLine("Indoor Game Players:");
+        foreach (var player in indoorPlayers)
+        {
+            player.Display();
+        }
+
+        // Display Outdoor game players
+        Console.WriteLine("\nOutdoor Game Players:");
+        foreach (var player in outdoorPlayers)
+        {
+            player.Display();
+        }
+    }
+}
+
+
+3)Create a package named Math11. Define class MathsOperations with  methods to find the maximum and minimum of three numbers. Create another package Stats. Define class StatsOperations with methods to find the average and median of three numbers. Use these methods in main to perform operations on three integers accepted 
+
+using System;
+
+namespace Math11
+{
+    public class MathsOperations
+    {
+        public int Max(int a, int b, int c)
+        {
+            return Math.Max(a, Math.Max(b, c));
+        }
+
+        public int Min(int a, int b, int c)
+        {
+            return Math.Min(a, Math.Min(b, c));
+        }
+    }
+}
+
+namespace Stats
+{
+    public class StatsOperations
+    {
+        public double Average(int a, int b, int c)
+        {
+            return (a + b + c) / 3.0;
+        }
+
+        public double Median(int a, int b, int c)
+        {
+            int[] numbers = { a, b, c };
+            Array.Sort(numbers);
+            return numbers[1];
+        }
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Enter three integers:");
+        int num1 = int.Parse(Console.ReadLine());
+        int num2 = int.Parse(Console.ReadLine());
+        int num3 = int.Parse(Console.ReadLine());
+
+        Math11.MathsOperations mathOps = new Math11.MathsOperations();
+        Stats.StatsOperations statsOps = new Stats.StatsOperations();
+
+        int max = mathOps.Max(num1, num2, num3);
+        int min = mathOps.Min(num1, num2, num3);
+        double average = statsOps.Average(num1, num2, num3);
+        double median = statsOps.Median(num1, num2, num3);
+
+        Console.WriteLine($"Maximum: {max}");
+        Console.WriteLine($"Minimum: {min}");
+        Console.WriteLine($"Average: {average}");
+        Console.WriteLine($"Median: {median}");
+    }
+}
+
+4)Write a c# program to create a namespace“SY” which has a class SYMarks 
+(members – ComputerTotal, MathsTotal, and ElectronicsTotal). Create another namespace TY which has a class TYMarks (members – Theory, Practicals). Create n objects of Student class (having rollNumber, name, SYMarks and TYMarks). Add the marks of SY and TY computer subjects and calculate the Grade (‘A’ for >= 70, ‘B’ for >= 60 ‘C’ for >= 50 , Pass Class for > =40 else ‘FAIL’) and display the result of the student in proper format
+
+using System;
+
+namespace SY
+{
+    public class SYMarks
+    {
+        public int ComputerTotal;
+        public int MathsTotal;
+        public int ElectronicsTotal;
+
+        public SYMarks(int computerTotal, int mathsTotal, int electronicsTotal)
+        {
+            ComputerTotal = computerTotal;
+            MathsTotal = mathsTotal;
+            ElectronicsTotal = electronicsTotal;
+        }
+    }
+}
+
+namespace TY
+{
+    public class TYMarks
+    {
+        public int Theory;
+        public int Practicals;
+
+        public TYMarks(int theory, int practicals)
+        {
+            Theory = theory;
+            Practicals = practicals;
+        }
+    }
+}
+
+public class Student
+{
+    public int RollNumber;
+    public string Name;
+    public SY.SYMarks SYMarks;
+    public TY.TYMarks TYMarks;
+
+    public Student(int rollNumber, string name, SY.SYMarks syMarks, TY.TYMarks tyMarks)
+    {
+        RollNumber = rollNumber;
+        Name = name;
+        SYMarks = syMarks;
+        TYMarks = tyMarks;
+    }
+
+    public string CalculateGrade()
+    {
+        int totalMarks = SYMarks.ComputerTotal + TYMarks.Theory + TYMarks.Practicals;
+        double average = totalMarks / 3.0;
+
+        if (average >= 70)
+            return "A";
+        else if (average >= 60)
+            return "B";
+        else if (average >= 50)
+            return "C";
+        else if (average >= 40)
+            return "Pass Class";
+        else
+            return "FAIL";
+    }
+
+    public void DisplayResult()
+    {
+        Console.WriteLine($"Roll Number: {RollNumber}");
+        Console.WriteLine($"Name: {Name}");
+        Console.WriteLine($"SY Computer Total: {SYMarks.ComputerTotal}");
+        Console.WriteLine($"TY Theory: {TYMarks.Theory}");
+        Console.WriteLine($"TY Practicals: {TYMarks.Practicals}");
+        Console.WriteLine($"Grade: {CalculateGrade()}");
+        Console.WriteLine("-------------------------");
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Create an array of students
+        Student[] students = new Student[3];
+
+        // Initialize students with marks
+        students[0] = new Student(1, "Alice", new SY.SYMarks(75, 80, 70), new TY.TYMarks(60, 65));
+        students[1] = new Student(2, "Bob", new SY.SYMarks(55, 60, 50), new TY.TYMarks(45, 50));
+        students[2] = new Student(3, "Charlie", new SY.SYMarks(35, 40, 30), new TY.TYMarks(25, 30));
+
+        // Display results
+        foreach (var student in students)
+        {
+            student.DisplayResult();
+        }
+    }
+}
+
+5) using System;
+namespace ConsoleApplication1
+{
+    class program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello Namespace");
+        }
+    }
+}
+
+6)using First;
+using System;
+namespace First
+{
+    public class Hello
+    {
+        public void sayHello() { Console.WriteLine("Hello First Namespace"); }
+    }
+}
+namespace Second
+{
+   public class Hello
+    {
+        public void sayHello() { Console.WriteLine("Hello Second Namespace"); }
+    }
+}
+public class TestNamespace
+{
+    public static void Main()
+    {
+        First.Hello h1 = new First.Hello();
+        Second.Hello h2 = new Second.Hello();
+        h1.sayHello();
+        h2.sayHello();
+        
+}
+ }
+
+    
+7)
+
+   
